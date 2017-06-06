@@ -1,3 +1,5 @@
+import { ParamMatrix } from './param-matrices.model';
+
 export interface ParamMaster {
     ID?: number;
     CategoryID?: number;
@@ -15,6 +17,8 @@ export interface ParamCategory {
     Name?: string;
     EnglishName?: string;
     Weighting?: number;
+    MatrixID?: number;
+    ParamMatrix?: ParamMatrix;
 }
 
 export interface ParamValue {

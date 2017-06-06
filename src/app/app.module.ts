@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-router.module';
 import { HomeModule } from './home/home.module';
 import { ParamsModule } from './params/params.module';
 import { IndividualsModule } from './individuals/individuals.module';
-
+import { UsersModule } from './users/users.module';
 
 
 @NgModule({
@@ -36,6 +36,7 @@ import { IndividualsModule } from './individuals/individuals.module';
     HomeModule,
     ParamsModule,
     IndividualsModule,
+    UsersModule,
     AppRoutingModule
   ],
   providers: [BreadcrumbService],

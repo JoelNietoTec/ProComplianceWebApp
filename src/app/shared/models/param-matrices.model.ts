@@ -6,4 +6,14 @@ export interface ParamMatrix {
   Code?: string;
   Description?: string;
   ParamCategories?: ParamCategory[];
+  MatrixTypeID?: number;
+  MatrixType?: MatrixType;
+  CreateDate?: Date;
+  ModificateDate?: Date;
+}
+
+export interface MatrixType {
+  ID?: number;
+  Name?: string;
+  EnglishName?: string;
 }

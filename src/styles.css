@@ -7,7 +7,13 @@ body, button, input, input.form-control, optgroup, select, select.form-control, 
     font-size: 13px;
 }
 
+.card-header {
+  background-color: #eceeef;
+}
 
+.spinner {
+  height: 80px;
+}
 
 .tooltip {
   font-size: 13px;
@@ -19,10 +25,6 @@ body, button, input, input.form-control, optgroup, select, select.form-control, 
 
 .card, .breadcrumb, .btn, .navbar {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-}
-
-.card-footer > .btn {
-  margin-left: 20px;
 }
 
 a:not([href]):not([tabindex]) {
@@ -105,4 +107,35 @@ body {
 .placeholder img {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+
+/* Transitions */
+
+.animated, .card, h3, td, .card-footer {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn, .card, h3, td, .card-footer {
+  animation-name: fadeIn;
 }

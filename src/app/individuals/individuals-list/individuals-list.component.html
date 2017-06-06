@@ -1,11 +1,14 @@
-<a class="btn btn-primary" href="#" role="button" [routerLink]="['New']">New <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-<br>
-<br>
-<div class="card">
+<div class="row d-flex justify-content-center animated fadeIn" *ngIf="!individuals">
+  <img src="assets/img/spinner.gif" class="spinner">
+</div>
+<div *ngIf="individuals" class="card animated fadeIn">
+  <div class="card-header">
+    <a class="btn btn-primary animated fadeIn" href="#" role="button" [routerLink]="['New']">New <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+  </div>
   <div class="card-block card-table">
     <h4 class="card-title">All Individuals</h4>
-    <table *ngIf="individuals" class="table table-hover table-sm">
-      <thead class="text-white bg-primary">
+    <table class="table table-hover table-sm">
+      <thead>
         <tr>
           <th>ID</th>
           <th>First Name</th>
@@ -13,7 +16,7 @@
           <th>Third Name</th>
           <th>Fourth Name</th>
           <th>Gender</th>
-          <th>BirthDate</th>
+          <th>Birth Date</th>
           <th></th>
         </tr>
       </thead>

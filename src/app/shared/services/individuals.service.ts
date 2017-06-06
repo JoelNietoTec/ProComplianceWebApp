@@ -31,7 +31,7 @@ export class IndividualService {
         this.individuals = response.json();
         return this.individuals;
       });
-  };
+  }
 
   getIndividual(_id: number) {
     return this.http
@@ -50,6 +50,6 @@ export class IndividualService {
         this.newIndividual = response.json();
         return this.newIndividual;
       });
-  };
+  }
 
 }

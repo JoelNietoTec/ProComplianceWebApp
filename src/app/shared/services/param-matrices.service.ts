@@ -15,7 +15,7 @@ export class ParamMatricesService {
   private newMatrix: ParamMatrix;
   private matrix: ParamMatrix;
   private matrices: ParamMatrix[];
-  private headers = new Headers({ 'Content-Type': 'application/json' });
+  private _headers = new Headers({ 'Content-Type': 'application/json' });
 
 
   constructor(
@@ -25,7 +25,8 @@ export class ParamMatricesService {
   }
 
   getMatrices() {
-    return this.http.get(this.matrixURL)
+    return this.http
+      .get(this.matrixURL)
       .map(response => {
         this.matrices = response.json();
         return this.matrices;
@@ -43,7 +44,7 @@ export class ParamMatricesService {
 
   createMatrix(mat: any): Observable<ParamMatrix> {
     return this.http
-      .post(this.matrixURL, JSON.stringify(mat), { headers: this.headers })
+      .post(this.matrixURL, JSON.stringify(mat), { headers: this._headers })
       .map(response => {
         this.newMatrix = response.json();
         return this.newMatrix;

@@ -1,13 +1,16 @@
-<div *ngIf="_matrix" class="row">
+<div class="row d-flex justify-content-center animated fadeIn" *ngIf="!_matrix">
+  <img src="assets/img/spinner.gif" class="spinner">
+</div>
+<div class="row" *ngIf="_matrix">
   <div class="col-md-12">
-        <h3>{{ _matrix.Name }} / {{ _matrix.Code }}</h3>
+    <h3>{{ _matrix.Name }} / {{ _matrix.Code }}</h3>
   </div>
   <div class="col-md-12">
     <div class="card">
       <div class="card-block">
         <h4 class="card-title">Current Categories</h4>
         <table class="table table-sm">
-          <thead class="thead-default">
+          <thead>
             <tr>
               <th>Name</th>
               <th>English Name</th>
@@ -23,6 +26,9 @@
           </tbody>
         </table>
       </div>
+      <div class="card-footer" *ngIf="_matrix.ParamCategories?.length > 0">
+        <button type="button" class="btn btn-primary" (click)="saveCategories()"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+      </div>
     </div>
   </div>
   <div class="col-md-12">
@@ -32,19 +38,22 @@
           <div class="col-md-5">
             <div class="form-group">
               <label for="name">Name</label>
-              <input [(ngModel)]="_newCategory.Name" type="text" name="name" id="new-category-name" class="form-control" placeholder="Category Name" aria-describedby="helpId">
+              <input [(ngModel)]="_newCategory.Name" type="text" name="name" id="new-category-name" class="form-control" placeholder="Category Name"
+                aria-describedby="helpId">
             </div>
           </div>
           <div class="col-md-5">
             <div class="form-group">
               <label for="english-name">English Name</label>
-              <input [(ngModel)]="_newCategory.EnglishName" type="text" name="english-name" id="new-category-name" class="form-control" placeholder="English Category Name" aria-describedby="helpId">
+              <input [(ngModel)]="_newCategory.EnglishName" type="text" name="english-name" id="new-category-name" class="form-control"
+                placeholder="English Category Name" aria-describedby="helpId">
             </div>
           </div>
           <div class="col-md-2">
             <div class="form-group">
               <label for="weighting">Weighting</label>
-              <input [(ngModel)]="_newCategory.Weighting" type="number" name="weighting" id="new-category-weighting" class="form-control" placeholder="" aria-describedby="helpId">
+              <input [(ngModel)]="_newCategory.Weighting" type="number" name="weighting" id="new-category-weighting" class="form-control"
+                placeholder="" aria-describedby="helpId">
             </div>
           </div>
           <div class="col-md-1">

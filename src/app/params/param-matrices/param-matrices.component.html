@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="card">
+    <form (ngSubmit)="onSubmit()" class="card">
       <div class="card-block">
         <h4 class="card-title">
           New Matrix
         </h4>
-        <form (ngSubmit)="onSubmit()" class="row">
+        <div class="row">
           <div class="col-md-3">
             <div class="form-group">
               <label for="name">Name</label>
@@ -20,7 +20,16 @@
               <small id="helpId" class="text-muted">Matrix Code</small>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="type">Matrix Type</label>
+              <select class="form-control custom-select" [(ngModel)]="newMatrix.MatrixTypeID" name="matrix-type" id="matrix-type" required>
+                <option *ngFor="let type of matrixTypes" [value]="type.ID">{{ type.EnglishName }}</option>
+              </select>
+              <small class="text-muted">Select one</small>
+            </div>
+          </div>
+          <div class="col-md-3">
             <div class="form-group">
               <label for="description">Description</label>
               <input type="text" [(ngModel)]="newMatrix.Description" name="description" id="description" class="form-control" placeholder="Description"
@@ -28,24 +37,29 @@
               <small id="helpId" class="text-muted">Matrix Description</small>
             </div>
           </div>
-          <div class="col-md-1">
-            <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
-          </div>
-        </form>
+        </div>
       </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+      </div>
+    </form>
+    <br>
+    <br>
+    <div class="row d-flex justify-content-center animated fadeIn" *ngIf="!matrices">
+      <img src="assets/img/spinner.gif" class="spinner">
     </div>
-    <br>
-    <br>
-    <div class="card">
+    <div class="card" *ngIf="matrices">
       <div class="card-block">
         <h4 class="card-title">All Matrices</h4>
         <table class="table table-sm">
-          <thead class="text-white bg-primary">
+          <thead>
             <tr>
               <th>ID</th>
               <th>Code</th>
               <th>Name</th>
+              <th>Type</th>
               <th>Description</th>
+              <th>Create Date</th>
               <th></th>
             </tr>
           </thead>
@@ -54,7 +68,9 @@
               <td>{{ matrix.ID }}</td>
               <td>{{ matrix.Code }}</td>
               <td>{{ matrix.Name }}</td>
+              <td>{{ matrix.MatrixType.EnglishName }}</td>
               <td>{{ matrix.Description }}</td>
+              <td>{{ matrix.CreateDate | date: 'mediumDate' }}</td>
               <td>
                 <a [routerLink]="['Matrix', matrix.ID]"> <i class="fa fa-edit" aria-hidden="true" placement="top" ngbTooltip="Details"></i></a>
               </td>
