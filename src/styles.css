@@ -1,15 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400');
 
 body, button, input, input.form-control, optgroup, select, select.form-control, textarea, .tooltip {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-weight: 300;
     font-size: 13px;
 }
 
-.card-block.card-table {
-  padding: 0;
-}
+
 
 .tooltip {
   font-size: 13px;
