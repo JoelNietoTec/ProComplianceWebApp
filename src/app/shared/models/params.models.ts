@@ -2,14 +2,13 @@ import { ParamMatrix } from './param-matrices.model';
 
 export interface ParamMaster {
     ID?: number;
-    CategoryID?: number;
+    ParamCategoryID?: number;
     Name?: string;
     EnglishName?: string;
     FreeField?: string;
     IsRequired?: string;
     Weighting?: number;
-    ParamCategoryID?: number;
-    ParamCategory?: ParamCategory;
+    ParamValues?: ParamValue[];
 }
 
 export interface ParamCategory {
@@ -17,8 +16,8 @@ export interface ParamCategory {
     Name?: string;
     EnglishName?: string;
     Weighting?: number;
-    MatrixID?: number;
-    ParamMatrix?: ParamMatrix;
+    ParamMatrixID?: number;
+    ParamMasters?: ParamMaster[];
 }
 
 export interface ParamValue {
@@ -27,5 +26,4 @@ export interface ParamValue {
     DisplayValue?: string;
     EnglishDisplayValue?: string;
     Score?: number;
-    ParamMaster?: ParamMaster;
 }

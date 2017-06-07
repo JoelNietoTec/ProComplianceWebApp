@@ -36,7 +36,7 @@ export class ParamMatrixComponent implements OnInit {
   }
 
   addCategory() {
-    this._newCategory.MatrixID = this._matrix.ID;
+    this._newCategory.ParamMatrixID = this._matrix.ID;
     this._matrix.ParamCategories.push(this._newCategory);
     console.log(this._matrix);
     this._newCategory = {};
