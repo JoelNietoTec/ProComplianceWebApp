@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ConnectionService {
@@ -6,6 +7,6 @@ export class ConnectionService {
   public APIUrl: string;
 
   constructor() {
-    this.APIUrl = 'http://compliancewebapi.azurewebsites.net/api/';
+    this.APIUrl = environment.apiURL;
   }
 }
