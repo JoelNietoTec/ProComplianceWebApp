@@ -8,6 +8,7 @@ import { ParamMatricesService } from './services/param-matrices.service';
 import { MatrixTypesService } from './services/matrix-types.service';
 import { ParamCategoriesService } from './services/param-categories.service';
 import { ConnectionService } from './services/connection.service';
+import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { ConnectionService } from './services/connection.service';
     ParamCategoriesService,
     ConnectionService
   ],
-  declarations: []
+  declarations: [LoadingModalComponent]
 })
 export class SharedModule { }

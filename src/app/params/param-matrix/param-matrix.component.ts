@@ -17,6 +17,8 @@ export class ParamMatrixComponent implements OnInit {
 
   _matrix: ParamMatrix;
   _newCategory: ParamCategory;
+  _newCategories: ParamCategory[] = [];
+  _totalPercent: number = 0;
 
   constructor(
     private _route: ActivatedRoute,
@@ -25,30 +27,50 @@ export class ParamMatrixComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.initMatrix();
+    this._newCategory = {};
+  }
+
+  initMatrix() {
+    this._matrix = {};
     this._route.params.subscribe(params => {
       this._matrixService.getMatrix(params['id'])
         .subscribe(data => {
           this._matrix = data;
           console.log(this._matrix);
+          this.calculatePercent();
         });
     });
-    this._newCategory = {};
   }
 
   addCategory() {
     this._newCategory.ParamMatrixID = this._matrix.ID;
-    this._matrix.ParamCategories.push(this._newCategory);
-    console.log(this._matrix);
+    this._newCategories.push(this._newCategory);
+    this.calculatePercent();
     this._newCategory = {};
   }
 
-  saveCategories() {
+  calculatePercent() {
+    this._totalPercent = 0;
     this._matrix.ParamCategories.forEach(element => {
+      this._totalPercent = this._totalPercent + element.Weighting;
+    });
+
+    this._newCategories.forEach(element => {
+      this._totalPercent = this._totalPercent + element.Weighting;
+    });
+
+  }
+
+  saveCategories() {
+    this._newCategories.forEach(element => {
       this._categoryService.createCategory(element)
         .subscribe(data => {
           console.log(data);
-          this._newCategory = {};
+          this.initMatrix();
+          this._newCategories = [];
         });
     });
   }
+
 }

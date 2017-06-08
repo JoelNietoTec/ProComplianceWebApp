@@ -10,7 +10,7 @@ import { MatrixTypesService } from '../../shared/services/matrix-types.service';
   styleUrls: ['./param-matrices.component.css']
 })
 export class ParamMatricesComponent implements OnInit {
-
+  _showNewMatrix: boolean;
   matrices: ParamMatrix[];
   newMatrix: ParamMatrix = {};
   matrixTypes: MatrixType[];
@@ -43,4 +43,9 @@ export class ParamMatricesComponent implements OnInit {
         this.newMatrix = {};
       });
   }
+
+  addMatrix() {
+      this._showNewMatrix = !this._showNewMatrix;
+      console.log(this._showNewMatrix);
+    }
 }

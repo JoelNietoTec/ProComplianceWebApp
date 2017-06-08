@@ -15,6 +15,7 @@
               <th>Name</th>
               <th>English Name</th>
               <th>Weighting</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -22,16 +23,29 @@
               <td>{{ category.Name }}</td>
               <td>{{ category.EnglishName }}</td>
               <td>{{ category.Weighting }} %</td>
+              <td><i class="fa fa-lock fa-2x text-primary" aria-hidden="true"></i></td>
+            </tr>
+            <tr *ngFor="let newcat of _newCategories">
+              <td>{{ newcat.Name }}</td>
+              <td>{{ newcat.EnglishName }}</td>
+              <td>{{ newcat.Weighting}}</td>
+              <td><i class="fa fa-unlock-alt fa-2x text-danger" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>{{ _totalPercent }} %</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="card-footer" *ngIf="_matrix.ParamCategories?.length > 0">
+      <div class="card-footer" *ngIf="_totalPercent == 100 && _newCategories.length > 0">
         <button type="button" class="btn btn-primary" (click)="saveCategories()"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
       </div>
     </div>
   </div>
-  <div class="col-md-12"[hidden]="true">
+  <div class="col-md-12"[hidden]="false">
     <div class="card">
       <div class="card-block">
         <form (ngSubmit)="addCategory()" class="row" id="new-category-form">
@@ -52,8 +66,7 @@
           <div class="col-md-2">
             <div class="form-group">
               <label for="weighting">Weighting</label>
-              <input [(ngModel)]="_newCategory.Weighting" type="number" name="weighting" id="new-category-weighting" class="form-control"
-                placeholder="" aria-describedby="helpId">
+              <input [(ngModel)]="_newCategory.Weighting" type="number" name="weighting" id="new-category-weighting" class="form-control" placeholder="" aria-describedby="helpId">
             </div>
           </div>
           <div class="col-md-1">

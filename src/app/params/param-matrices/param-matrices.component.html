@@ -1,6 +1,44 @@
+<h3>Risk Matrices</h3>
 <div class="row">
   <div class="col-md-12">
-    <form (ngSubmit)="onSubmit()" class="card">
+    <div class="row d-flex justify-content-center animated fadeIn" *ngIf="!matrices">
+      <img src="assets/img/spinner.gif" class="spinner">
+    </div>
+    <div class="card" *ngIf="matrices">
+      <div class="card-header">
+        <div (click)="addMatrix()" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</div>
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">All Matrices</h4>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Create Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let matrix of matrices">
+              <td>{{ matrix.ID }}</td>
+              <td>{{ matrix.Code }}</td>
+              <td>{{ matrix.Name }}</td>
+              <td>{{ matrix.MatrixType.EnglishName }}</td>
+              <td>{{ matrix.Description }}</td>
+              <td>{{ matrix.CreateDate | date: 'mediumDate' }}</td>
+              <td>
+                <a [routerLink]="['Matrix', matrix.ID]"> <i class="fa fa-edit" aria-hidden="true" placement="top" ngbTooltip="Details"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <form (ngSubmit)="onSubmit()" class="card" [hidden]="!_showNewMatrix">
       <div class="card-block">
         <h4 class="card-title">
           New Matrix
@@ -43,41 +81,5 @@
         <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
       </div>
     </form>
-    <br>
-    <br>
-    <div class="row d-flex justify-content-center animated fadeIn" *ngIf="!matrices">
-      <img src="assets/img/spinner.gif" class="spinner">
-    </div>
-    <div class="card" *ngIf="matrices">
-      <div class="card-block">
-        <h4 class="card-title">All Matrices</h4>
-        <table class="table table-sm">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Code</th>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Description</th>
-              <th>Create Date</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let matrix of matrices">
-              <td>{{ matrix.ID }}</td>
-              <td>{{ matrix.Code }}</td>
-              <td>{{ matrix.Name }}</td>
-              <td>{{ matrix.MatrixType.EnglishName }}</td>
-              <td>{{ matrix.Description }}</td>
-              <td>{{ matrix.CreateDate | date: 'mediumDate' }}</td>
-              <td>
-                <a [routerLink]="['Matrix', matrix.ID]"> <i class="fa fa-edit" aria-hidden="true" placement="top" ngbTooltip="Details"></i></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
   </div>
 </div>
