@@ -9,3 +9,12 @@
 .nav-item > a.nav-link:hover, .nav-item > a.nav-link.active {
     color: #fff;
 }
+
+ul.sub-items {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sub-items > .sub-item > a {
+  padding-left: 30px;
+}

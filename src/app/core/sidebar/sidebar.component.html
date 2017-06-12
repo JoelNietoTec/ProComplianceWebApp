@@ -1,5 +1,17 @@
 <ul class="nav nav-pills flex-column ">
   <li class="nav-item"><a [routerLink]="['Home']" class="nav-link" routerLinkActive="active"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
   <li class="nav-item"><a [routerLink]="['Individuals']" class="nav-link" routerLinkActive="active"><i class="fa fa-user-circle" aria-hidden="true"></i> Individuals</a></li>
-  <li class="nav-item"><a [routerLink]="['Params']" class="nav-link" routerLinkActive="active"><i class="fa fa-table" aria-hidden="true"></i> Parameters</a> </li>
+  <li class="nav-item">
+    <a data-toggle="collapse" href="#paramLinks" class="nav-link">
+      <i class="fa fa-bar-chart" aria-hidden="true"></i> Parameters
+      </a>
+    <ul class="nav-pills flex-column sub-items collapse" id="paramLinks">
+      <li class="nav-item sub-item">
+        <a [routerLink]="['Params', 'Matrices']" class="nav-link" routerLinkActive="active"><i class="fa fa-table" aria-hidden="true"></i> Matrices</a>
+      </li>
+      <li class="nav-item sub-item">
+        <a [routerLink]="['Params', 'Tables']" class="nav-link" routerLinkActive="active"><i class="fa fa-table" aria-hidden="true"></i> Tables</a>
+      </li>
+    </ul>
+  </li>
 </ul>

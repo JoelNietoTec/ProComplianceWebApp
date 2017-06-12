@@ -9,6 +9,7 @@ import { ParamsRoutingModule } from './params-router.module';
 import { ParamsComponent } from './params.component';
 import { ParamMatricesComponent } from './param-matrices/param-matrices.component';
 import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
+import { ParamTablesComponent } from './param-tables/param-tables.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
   declarations: [
     ParamsComponent,
     ParamMatricesComponent,
-    ParamMatrixComponent
+    ParamMatrixComponent,
+    ParamTablesComponent
   ]
 })
 export class ParamsModule { }

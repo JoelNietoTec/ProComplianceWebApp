@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ParamsComponent } from './params.component';
 import { ParamMatricesComponent } from './param-matrices/param-matrices.component';
 import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
+import { ParamTablesComponent } from './param-tables/param-tables.component';
 
 
 const routes: Routes = [
@@ -12,13 +13,16 @@ const routes: Routes = [
     children:
     [
       {
-        path: '', component: ParamMatricesComponent
+        path: 'Matrices', component: ParamMatricesComponent
+      },
+      {
+        path: 'Tables', component: ParamTablesComponent
       },
       {
         path: 'Matrix/:id', component: ParamMatrixComponent
       },
       {
-        path: '**', pathMatch: 'full', redirectTo: ''
+        path: '**', pathMatch: 'full', redirectTo: 'Matrices'
       }
     ]
   },
@@ -30,4 +34,4 @@ const routes: Routes = [
 })
 export class ParamsRoutingModule { }
 
-export const routedComponents = [ParamsComponent, ParamMatrixComponent, ParamMatricesComponent];
+export const routedComponents = [ParamsComponent, ParamMatrixComponent, ParamMatricesComponent, ParamTablesComponent];
