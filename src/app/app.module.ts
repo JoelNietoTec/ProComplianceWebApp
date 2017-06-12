@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 // Packages Dependencies
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -42,7 +43,7 @@ import { UsersModule } from './users/users.module';
     UsersModule,
     AppRoutingModule
   ],
-  providers: [BreadcrumbService],
+  providers: [BreadcrumbService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
