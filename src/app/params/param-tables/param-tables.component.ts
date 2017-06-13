@@ -12,6 +12,8 @@ import { ParamMaster } from '../../shared/models/params.models';
 export class ParamTablesComponent implements OnInit {
 
   tables: ParamMaster[];
+  _showNewTable: boolean;
+  newTable: ParamMaster;
 
   constructor(
     private _tablesService: ParamTablesService
@@ -19,8 +21,16 @@ export class ParamTablesComponent implements OnInit {
 
   ngOnInit() {
     this._tablesService.getTables()
-    .subscribe(data => {
-      this.tables = data;
-    });
+      .subscribe(data => {
+        this.tables = data;
+      });
+  }
+
+  onSubmit() {
+
+  }
+
+  addTable() {
+    this._showNewTable = !this._showNewTable;
   }
 }

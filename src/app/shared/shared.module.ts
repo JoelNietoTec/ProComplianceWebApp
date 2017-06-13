@@ -8,7 +8,9 @@ import { ParamMatricesService } from './services/param-matrices.service';
 import { MatrixTypesService } from './services/matrix-types.service';
 import { ParamCategoriesService } from './services/param-categories.service';
 import { ConnectionService } from './services/connection.service';
+import { ParamTablesService } from './services/param-tables.service';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
+import { BooleanPipe } from './pipes/boolean.pipe';
 
 @NgModule({
   imports: [
@@ -20,8 +22,9 @@ import { LoadingModalComponent } from './components/loading-modal/loading-modal.
     ParamMatricesService,
     MatrixTypesService,
     ParamCategoriesService,
+    ParamTablesService,
     ConnectionService
   ],
-  declarations: [LoadingModalComponent]
+  declarations: [LoadingModalComponent, BooleanPipe]
 })
 export class SharedModule { }
