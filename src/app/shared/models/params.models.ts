@@ -5,8 +5,8 @@ export interface ParamMaster {
     Name?: string;
     EnglishName?: string;
     FreeField?: string;
-    IsRequired?: string;
-    ParamValues?: ParamValue[];
+    CreteDate?: Date;
+    ModificateDate?: Date;
 }
 
 export interface ParamCategory {

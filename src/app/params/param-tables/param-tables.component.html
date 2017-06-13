@@ -1,7 +1,7 @@
 <h3>Param Tables</h3>
 <div class="row">
   <div class="col-md-12">
-    <div class="card">
+    <div class="card" *ngIf="tables">
       <div class="card-header">
         <div (click)="addTable()" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add</div>
       </div>
@@ -13,10 +13,19 @@
               <th>ID</th>
               <th>Name</th>
               <th>English Name</th>
-              <th>Free Field</th>
-              <th>Required</th>
+              <th>Create Date</th>
+              <th>Modificate Date</th>
             </tr>
           </thead>
+          <tbody>
+            <tr *ngFor="let table of tables">
+              <td>{{ table.ID }}</td>
+              <td>{{ table.Name }}</td>
+              <td>{{ table.EnglishName }}</td>
+              <td>{{ table.CreateDate }}</td>
+              <td>{{ table.ModificateDate }}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -26,24 +35,22 @@
           New Table
         </h4>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-              <small id="helpId" class="text-muted">Help text</small>
+              <input [(ngModel)] = "newTable.Name" type="text" name="name" id="name" class="form-control" placeholder="Table Name" aria-describedby="helpId">
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="english-name">English Name</label>
-              <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-              <small id="helpId" class="text-muted">Help text</small>
+              <input [(ngModel)] = "newTable.EnglishName" type="text" name="english-name" id="english-name" class="form-control" placeholder="Table English Name" aria-describedby="helpId">
             </div>
           </div>
-          <div class="col-md-2">
-
-          </div>
         </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
       </div>
     </form>
   </div>

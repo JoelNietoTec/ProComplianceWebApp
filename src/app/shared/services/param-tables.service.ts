@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -13,6 +13,8 @@ export class ParamTablesService {
   private tablesURL: string;
   private tables: ParamMaster[];
   private table: ParamMaster;
+  private newTable: ParamMaster;
+  private _headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(
     private _http: Http,
@@ -27,6 +29,15 @@ export class ParamTablesService {
       .map(response => {
         this.tables = response.json();
         return this.tables;
+      });
+  }
+
+  createtable(tab: ParamMaster): Observable<ParamMaster> {
+    return this._http
+      .post(this.tablesURL, JSON.stringify(tab), { headers: this._headers })
+      .map(response => {
+        this.newTable = response.json;
+        return this.newTable;
       });
   }
 
