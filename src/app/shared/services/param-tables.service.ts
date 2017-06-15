@@ -32,6 +32,15 @@ export class ParamTablesService {
       });
   }
 
+  getTable(_id: number) {
+    return this._http
+      .get(this.tablesURL + '/' + _id)
+      .map(response => {
+        this.table = response.json();
+        return this.table;
+      });
+  }
+
   createtable(tab: ParamMaster): Observable<ParamMaster> {
     return this._http
       .post(this.tablesURL, JSON.stringify(tab), { headers: this._headers })

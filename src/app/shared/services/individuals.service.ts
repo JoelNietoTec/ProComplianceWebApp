@@ -37,7 +37,6 @@ export class IndividualService {
     return this.http
       .get(this.individualURL + '/' + _id)
       .map(response => {
-        console.log(this.individualURL + '/' + _id);
         this.individual = response.json();
         return this.individual;
       });

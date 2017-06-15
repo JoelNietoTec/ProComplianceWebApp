@@ -31,7 +31,7 @@
               <td>{{ matrix.Description }}</td>
               <td>{{ matrix.CreateDate | date: 'mediumDate' }}</td>
               <td>
-                <a [routerLink]="['Matrix', matrix.ID]"> <i class="fa fa-edit" aria-hidden="true" placement="top" ngbTooltip="Details"></i></a>
+                <a [routerLink]="[matrix.ID]"> <i class="fa fa-edit" aria-hidden="true" placement="top" ngbTooltip="Details"></i></a>
               </td>
             </tr>
           </tbody>

@@ -5,7 +5,7 @@ export interface ParamMaster {
     Name?: string;
     EnglishName?: string;
     FreeField?: string;
-    CreteDate?: Date;
+    CreateDate?: Date;
     ModificateDate?: Date;
 }
 

@@ -10,6 +10,8 @@ import { ParamsComponent } from './params.component';
 import { ParamMatricesComponent } from './param-matrices/param-matrices.component';
 import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
 import { ParamTablesComponent } from './param-tables/param-tables.component';
+import { ParamTableComponent } from './param-table/param-table.component';
+
 
 @NgModule({
   imports: [
@@ -24,7 +26,8 @@ import { ParamTablesComponent } from './param-tables/param-tables.component';
     ParamsComponent,
     ParamMatricesComponent,
     ParamMatrixComponent,
-    ParamTablesComponent
+    ParamTablesComponent,
+    ParamTableComponent
   ]
 })
 export class ParamsModule { }

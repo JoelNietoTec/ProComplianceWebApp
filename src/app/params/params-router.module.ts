@@ -19,7 +19,7 @@ const routes: Routes = [
         path: 'Tables', component: ParamTablesComponent
       },
       {
-        path: 'Matrix/:id', component: ParamMatrixComponent
+        path: 'Matrices/:id', component: ParamMatrixComponent
       },
       {
         path: '**', pathMatch: 'full', redirectTo: 'Matrices'

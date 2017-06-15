@@ -23,11 +23,12 @@ export class ParamTablesComponent implements OnInit {
     this._tablesService.getTables()
       .subscribe(data => {
         this.tables = data;
+        console.log(data);
       });
   }
 
   onSubmit() {
-    this.newTable.CreteDate = new Date();
+    this.newTable.CreateDate = new Date();
 
     this._tablesService.createtable(this.newTable)
       .subscribe(data => {
