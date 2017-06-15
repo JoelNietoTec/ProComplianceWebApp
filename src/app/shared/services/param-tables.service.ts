@@ -45,7 +45,7 @@ export class ParamTablesService {
     return this._http
       .post(this.tablesURL, JSON.stringify(tab), { headers: this._headers })
       .map(response => {
-        this.newTable = response.json;
+        this.newTable = response.json();
         return this.newTable;
       });
   }

@@ -15,7 +15,7 @@
               <th>English Name</th>
               <th>Create Date</th>
               <th>Modificate Date</th>
-              <th>Actions</th>
+              <th class="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -25,7 +25,7 @@
               <td>{{ table.EnglishName }}</td>
               <td>{{ table.CreateDate | date:'medium' }}</td>
               <td>{{ table.ModificateDate }}</td>
-              <td><a href=""></a></td>
+              <td class="text-center"><a [routerLink]="[table.ID]"><i class="fa fa-edit" aria-hidden="true" placement="top" ngbTooltip="Details"></i></a></td>
             </tr>
           </tbody>
         </table>

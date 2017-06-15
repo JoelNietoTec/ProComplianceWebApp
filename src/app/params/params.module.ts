@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { SharedModule } from '../shared/shared.module';
+import { LoadingModalComponent } from '../shared/components/loading-modal/loading-modal.component';
+
 import { ParamsRoutingModule } from './params-router.module';
 
 import { ParamsComponent } from './params.component';
@@ -18,7 +21,8 @@ import { ParamTableComponent } from './param-table/param-table.component';
     CommonModule,
     FormsModule,
     NgbModule,
-    ParamsRoutingModule
+    ParamsRoutingModule,
+    SharedModule
   ],
   providers: [
   ],

@@ -5,6 +5,7 @@ import { ParamsComponent } from './params.component';
 import { ParamMatricesComponent } from './param-matrices/param-matrices.component';
 import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
 import { ParamTablesComponent } from './param-tables/param-tables.component';
+import { ParamTableComponent } from './param-table/param-table.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,9 @@ const routes: Routes = [
       },
       {
         path: 'Tables', component: ParamTablesComponent
+      },
+      {
+        path: 'Tables/:id', component: ParamTableComponent
       },
       {
         path: 'Matrices/:id', component: ParamMatrixComponent

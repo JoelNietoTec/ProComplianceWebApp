@@ -21,5 +21,18 @@ export class ParamTableComponent implements OnInit {
     private _tableService: ParamTablesService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.initTable();
+  }
+
+  initTable() {
+    this._table = {};
+    this._route.params.subscribe(params => {
+      this._tableService.getTable(params['id'])
+        .subscribe(data => {
+          this._table = data;
+          console.log(data);
+        });
+    });
+  }
 }

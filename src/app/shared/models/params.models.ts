@@ -7,6 +7,7 @@ export interface ParamMaster {
     FreeField?: string;
     CreateDate?: Date;
     ModificateDate?: Date;
+    ParamValues?: ParamValue[];
 }
 
 export interface ParamCategory {

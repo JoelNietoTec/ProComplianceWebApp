@@ -1,0 +1,29 @@
+<app-loading-modal *ngIf="!_table"></app-loading-modal>
+<div class="row" *ngIf="_table">
+  <div class="col-md-12">
+    <h3>Table: {{ _table.EnglishName }}</h3>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <h4 class="card-title">Table Values</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Display Value</th>
+            <th>English Display Value</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let value of _table.ParamValues">
+            <td>{{ value.ID }}</td>
+            <td>{{ value.DisplayValue }}</td>
+            <td>{{ value.EnglishDisplayValue }}</td>
+            <td>{{ value.Score }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

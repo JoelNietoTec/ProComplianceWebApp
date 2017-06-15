@@ -1,6 +1,5 @@
-<div class="row d-flex justify-content-center animated fadeIn" *ngIf="!_matrix">
-  <img src="assets/img/spinner.gif" class="spinner">
-</div>
+<app-loading-modal *ngIf="!_matrix">
+</app-loading-modal>
 <div class="row" *ngIf="_matrix">
   <div class="col-md-12">
     <h3>{{ _matrix.Name }} / {{ _matrix.Code }}</h3>

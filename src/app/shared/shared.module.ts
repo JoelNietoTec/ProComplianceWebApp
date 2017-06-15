@@ -16,6 +16,9 @@ import { BooleanPipe } from './pipes/boolean.pipe';
   imports: [
     CommonModule
   ],
+  exports: [
+    LoadingModalComponent
+  ],
   providers: [
     GendersService,
     IndividualService,
