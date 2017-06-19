@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ParamMatrix } from '../../shared/models/param-matrices.model';
-import { ParamCategory, ParamMaster, ParamValue } from '../../shared/models/params.models';
+import { ParamCategory, ParamTable, ParamValue } from '../../shared/models/params.models';
 import { ParamMatricesService } from '../../shared/services/param-matrices.service';
 import { ParamCategoriesService } from '../../shared/services/param-categories.service';
 

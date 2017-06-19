@@ -8,7 +8,7 @@
     <div class="card">
       <div class="card-block">
         <h4 class="card-title">Current Categories</h4>
-        <table class="table">
+        <table class="table table-sm">
           <thead>
             <tr>
               <th>Name</th>
@@ -22,13 +22,13 @@
               <td>{{ category.Name }}</td>
               <td>{{ category.EnglishName }}</td>
               <td>{{ category.Weighting }} %</td>
-              <td><i class="fa fa-lock fa-2x text-primary" aria-hidden="true"></i></td>
+              <td><i class="fa fa-lock text-primary" aria-hidden="true"></i></td>
             </tr>
             <tr *ngFor="let newcat of _newCategories">
               <td>{{ newcat.Name }}</td>
               <td>{{ newcat.EnglishName }}</td>
               <td>{{ newcat.Weighting}}</td>
-              <td><i class="fa fa-unlock-alt fa-2x text-danger" aria-hidden="true"></i></td>
+              <td><i class="fa fa-unlock-alt text-danger" aria-hidden="true"></i></td>
             </tr>
             <tr>
               <td></td>

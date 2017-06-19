@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ParamTablesService } from '../../shared/services/param-tables.service';
-import { ParamMaster, ParamValue } from '../../shared/models/params.models';
+import { ParamTable, ParamValue } from '../../shared/models/params.models';
 
 @Component({
   moduleId: module.id,
@@ -13,8 +13,11 @@ import { ParamMaster, ParamValue } from '../../shared/models/params.models';
 
 export class ParamTableComponent implements OnInit {
 
-  _table: ParamMaster;
+  _table: ParamTable;
   _newValue: ParamValue;
+  _currentValue: ParamValue;
+  _saving: boolean = false;
+  _editing: boolean;
 
   constructor(
     private _route: ActivatedRoute,
@@ -23,6 +26,9 @@ export class ParamTableComponent implements OnInit {
 
   ngOnInit() {
     this.initTable();
+    this._newValue = {};
+    this._currentValue = {};
+    this._editing = false;
   }
 
   initTable() {
@@ -34,5 +40,36 @@ export class ParamTableComponent implements OnInit {
           console.log(data);
         });
     });
+  }
+
+  onSubmit() {
+    this._saving = true;
+    this._newValue.ParamTableID = this._table.ID;
+    console.log(this._newValue);
+    this._tableService.addValue(this._newValue)
+      .subscribe(data => {
+        console.log(data);
+        this._saving = false;
+        this._table.ParamValues.push(data);
+        this._newValue = {};
+      });
+  }
+
+  editValue(val: ParamValue) {
+    this._editing = true;
+    this._currentValue = val;
+    window.scroll(0, 0);
+  }
+
+  onSaveValue() {
+    this._saving = true;
+    this._tableService.editValue(this._currentValue.ID, this._currentValue)
+      .subscribe(data => {
+        console.log(data);
+        this._saving = false;
+        this.initTable();
+        this._editing = false;
+        this._currentValue = {};
+      });
   }
 }

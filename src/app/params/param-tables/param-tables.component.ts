@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ParamTablesService } from '../../shared/services/param-tables.service';
-import { ParamMaster } from '../../shared/models/params.models';
+import { ParamTable, ParamValue } from '../../shared/models/params.models';
 
 @Component({
   selector: 'app-param-tables',
@@ -11,9 +11,10 @@ import { ParamMaster } from '../../shared/models/params.models';
 
 export class ParamTablesComponent implements OnInit {
 
-  tables: ParamMaster[];
+  tables: ParamTable[];
   _showNewTable: boolean;
-  newTable: ParamMaster = {};
+  newTable: ParamTable = {};
+  _saving: boolean = false;
 
   constructor(
     private _tablesService: ParamTablesService
@@ -28,6 +29,7 @@ export class ParamTablesComponent implements OnInit {
   }
 
   onSubmit() {
+    this._saving = true;
     this.newTable.CreateDate = new Date();
 
     this._tablesService.createtable(this.newTable)
@@ -35,6 +37,7 @@ export class ParamTablesComponent implements OnInit {
         console.log(data);
         this.tables.push(data);
         this.newTable = {};
+        this._saving = false;
       });
   }
 

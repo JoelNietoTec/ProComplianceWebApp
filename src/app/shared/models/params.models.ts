@@ -1,27 +1,36 @@
 import { ParamMatrix } from './param-matrices.model';
 
-export interface ParamMaster {
-    ID?: number;
-    Name?: string;
-    EnglishName?: string;
-    FreeField?: string;
-    CreateDate?: Date;
-    ModificateDate?: Date;
-    ParamValues?: ParamValue[];
+export interface ParamTable {
+  ID?: number;
+  Name?: string;
+  EnglishName?: string;
+  CreateDate?: Date;
+  ModificateDate?: Date;
+  ParamValues?: ParamValue[];
 }
 
 export interface ParamCategory {
-    ID?: number;
-    Name?: string;
-    EnglishName?: string;
-    Weighting?: number;
-    ParamMatrixID?: number;
+  ID?: number;
+  Name?: string;
+  EnglishName?: string;
+  Weighting?: number;
+  ParamMatrixID?: number;
 }
 
 export interface ParamValue {
-    ID?: number;
-    ParamMasterID?: number;
-    DisplayValue?: string;
-    EnglishDisplayValue?: string;
-    Score?: number;
+  ID?: number;
+  ParamTableID?: number;
+  DisplayValue?: string;
+  EnglishDisplayValue?: string;
+  Score?: number;
+}
+
+export interface Param {
+  ID?: number;
+  ParamCategoryID?: number;
+  Name?: string;
+  EnglishName?: string;
+  Description?: string;
+  ParamTableID?: number;
+  Weighting?: number;
 }
