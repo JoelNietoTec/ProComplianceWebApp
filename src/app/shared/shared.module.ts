@@ -11,6 +11,7 @@ import { ConnectionService } from './services/connection.service';
 import { ParamTablesService } from './services/param-tables.service';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { BooleanPipe } from './pipes/boolean.pipe';
+import { AddButtonComponent } from './components/add-button/add-button.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,6 @@ import { BooleanPipe } from './pipes/boolean.pipe';
     ParamTablesService,
     ConnectionService
   ],
-  declarations: [LoadingModalComponent, BooleanPipe]
+  declarations: [LoadingModalComponent, BooleanPipe, AddButtonComponent]
 })
 export class SharedModule { }

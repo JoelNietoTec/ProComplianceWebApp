@@ -76,16 +76,16 @@
             <tr>
               <th>Display Value</th>
               <th>English Display Value</th>
-              <th>Score</th>
-              <th>Actions</th>
+              <th class="text-center">Score</th>
+              <th class="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let value of _table.ParamValues">
               <td>{{ value.DisplayValue }}</td>
               <td>{{ value.EnglishDisplayValue }}</td>
-              <td>{{ value.Score }}</td>
-              <td><span (click)="editValue(value)"><i class="fa fa-edit text-success" aria-hidden="true"></i></span></td>
+              <td class="text-center">{{ value.Score }}</td>
+              <td class="text-center"><span (click)="editValue(value)"><i class="fa fa-edit text-success" aria-hidden="true"></i></span></td>
             </tr>
           </tbody>
         </table>

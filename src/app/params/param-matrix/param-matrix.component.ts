@@ -38,12 +38,15 @@ export class ParamMatrixComponent implements OnInit {
         .subscribe(data => {
           this._matrix = data;
           console.log(this._matrix);
-          this.calculatePercent();
+          if (this._matrix.ParamCategories) {
+            this.calculatePercent();
+          }
         });
     });
   }
 
   addCategory() {
+    console.log(this._newCategory);
     this._newCategory.ParamMatrixID = this._matrix.ID;
     this._newCategories.push(this._newCategory);
     this.calculatePercent();
@@ -52,9 +55,11 @@ export class ParamMatrixComponent implements OnInit {
 
   calculatePercent() {
     this._totalPercent = 0;
-    this._matrix.ParamCategories.forEach(element => {
-      this._totalPercent = this._totalPercent + element.Weighting;
-    });
+    if (this._matrix.ParamCategories) {
+      this._matrix.ParamCategories.forEach(element => {
+        this._totalPercent = this._totalPercent + element.Weighting;
+      });
+    }
 
     this._newCategories.forEach(element => {
       this._totalPercent = this._totalPercent + element.Weighting;

@@ -9,7 +9,7 @@
       </div>
       <div class="card-block">
         <h4 class="card-title">All Matrices</h4>
-        <table class="table table-sm">
+        <table class="table table-sm table-bordered">
           <thead>
             <tr>
               <th>ID</th>
@@ -18,7 +18,7 @@
               <th>Type</th>
               <th>Description</th>
               <th>Create Date</th>
-              <th></th>
+              <th class="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -29,7 +29,7 @@
               <td>{{ matrix.MatrixType.EnglishName }}</td>
               <td>{{ matrix.Description }}</td>
               <td>{{ matrix.CreateDate | date: 'mediumDate' }}</td>
-              <td>
+              <td class="text-center">
                 <a [routerLink]="[matrix.ID]"> <i class="fa fa-edit" aria-hidden="true" placement="top" ngbTooltip="Details"></i></a>
               </td>
             </tr>

@@ -14,6 +14,7 @@ import { ParamMatricesComponent } from './param-matrices/param-matrices.componen
 import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
 import { ParamTablesComponent } from './param-tables/param-tables.component';
 import { ParamTableComponent } from './param-table/param-table.component';
+import { ParamCategoryComponent } from './param-category/param-category.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ParamTableComponent } from './param-table/param-table.component';
     ParamMatricesComponent,
     ParamMatrixComponent,
     ParamTablesComponent,
-    ParamTableComponent
+    ParamTableComponent,
+    ParamCategoryComponent
   ]
 })
 export class ParamsModule { }
