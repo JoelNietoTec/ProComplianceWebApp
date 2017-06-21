@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ParamMatrix } from '../../shared/models/param-matrices.model';
 import { ParamCategory, ParamTable, ParamValue } from '../../shared/models/params.models';
 import { ParamMatricesService } from '../../shared/services/param-matrices.service';
+import { ParamTablesService } from '../../shared/services/param-tables.service';
 import { ParamCategoriesService } from '../../shared/services/param-categories.service';
 
 @Component({
@@ -16,6 +17,7 @@ import { ParamCategoriesService } from '../../shared/services/param-categories.s
 export class ParamMatrixComponent implements OnInit {
 
   _matrix: ParamMatrix;
+  _tables: ParamTable[];
   _newCategory: ParamCategory;
   _newCategories: ParamCategory[] = [];
   _totalPercent: number = 0;
@@ -23,12 +25,17 @@ export class ParamMatrixComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _matrixService: ParamMatricesService,
-    private _categoryService: ParamCategoriesService
+    private _categoryService: ParamCategoriesService,
+    private _tableService: ParamTablesService
   ) { }
 
   ngOnInit() {
     this.initMatrix();
     this._newCategory = {};
+    this._tableService.getTables()
+      .subscribe(data => {
+        this._tables = data;
+      });
   }
 
   initMatrix() {

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ParamCategory } from '../../shared/models/params.models';
+import { ParamCategory, ParamTable } from '../../shared/models/params.models';
+
+import { ParamTablesService } from '../../shared/services/param-tables.service';
 
 
 @Component({
@@ -11,8 +13,11 @@ import { ParamCategory } from '../../shared/models/params.models';
 
 export class ParamCategoryComponent implements OnInit {
   @Input() category: ParamCategory;
+  @Input() tables: ParamTable[];
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.category);
+   }
 }

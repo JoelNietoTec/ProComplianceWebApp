@@ -11,67 +11,9 @@
       </div>
       <div class="card-block">
         <h4 class="card-title">Current Categories</h4>
-        <div class="card" *ngFor="let category of _matrix.ParamCategories">
-          <div class="card-header">
-            {{ category.EnglishName }} / {{ category.Weighting }} %
-          </div>
-          <div class="card-block">
-            <h5 class="card-title">Params</h5>
-            <table class="table table-sm table-bordered">
-              <thead>
-                <th>Name</th>
-                <th>English Name</th>
-                <th>Description</th>
-                <th>%</th>
-                <th>Table</th>
-                <th>Actions</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <input type="text" class="form-control form-control-sm" name="{{category.ID}}" id="" >
-                  </td>
-                  <td><input type="text" class="form-control form-control-sm" name="" id="" ></td>
-                  <td><input type="text" class="form-control form-control-sm" name="" id="" ></td>
-                  <td><input type="text" class="form-control form-control-sm" name="" id="" ></td>
-                  <td><input type="text" class="form-control form-control-sm" name="" id="" ></td>
-                  <td class="text-center"><div class="btn btn-primary btn-sm"><i class="fa fa-plus-circle" aria-hidden="true"></i></div></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div *ngFor="let category of _matrix.ParamCategories">
+          <app-param-category [category]="category" [tables]="_tables"></app-param-category>
         </div>
-
-        <!--<table class="table table-sm">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>English Name</th>
-              <th>Weighting</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let category of _matrix.ParamCategories">
-              <td>{{ category.Name }}</td>
-              <td>{{ category.EnglishName }}</td>
-              <td>{{ category.Weighting }} %</td>
-              <td><i class="fa fa-lock text-primary" aria-hidden="true"></i></td>
-            </tr>
-            <tr *ngFor="let newcat of _newCategories">
-              <td>{{ newcat.Name }}</td>
-              <td>{{ newcat.EnglishName }}</td>
-              <td>{{ newcat.Weighting}}</td>
-              <td><i class="fa fa-unlock-alt text-danger" aria-hidden="true"></i></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>{{ _totalPercent }} %</td>
-            </tr>
-          </tbody>
-        </table>-->
       </div>
       <div class="card-footer" *ngIf="_totalPercent == 100 && _newCategories.length > 0">
         <button type="button" class="btn btn-primary" (click)="saveCategories()"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
@@ -85,8 +27,7 @@
           <div class="col-md-5">
             <div class="form-group">
               <label for="name">Name</label>
-              <input [(ngModel)]="_newCategory.Name" type="text" name="name" id="new-category-name" class="form-control" placeholder="Category Name"
-              >
+              <input [(ngModel)]="_newCategory.Name" type="text" name="name" id="new-category-name" class="form-control" placeholder="Category Name">
             </div>
           </div>
           <div class="col-md-5">
@@ -99,8 +40,7 @@
           <div class="col-md-2">
             <div class="form-group">
               <label for="weighting">Weighting</label>
-              <input [(ngModel)]="_newCategory.Weighting" type="number" name="weighting" id="new-category-weighting" class="form-control"
-                >
+              <input [(ngModel)]="_newCategory.Weighting" type="number" name="weighting" id="new-category-weighting" class="form-control">
             </div>
           </div>
           <div class="col-md-1">
