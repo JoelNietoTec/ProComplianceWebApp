@@ -1,0 +1,11 @@
+<app-loading-modal *ngIf="!_matrix"></app-loading-modal>
+<div class="row" *ngIf="_matrix">
+  <div class="col-md-4">
+    <h3>Current Categories</h3>
+    <div class="list-group">
+      <button *ngFor="let category of _matrix.ParamCategories" ng class="list-group-item list-group-item-action">
+        {{ category.EnglishName }} / {{ category.Weighting }}%
+      </button>
+    </div>
+  </div>
+</div>

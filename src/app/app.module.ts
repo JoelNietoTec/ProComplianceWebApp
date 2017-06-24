@@ -18,9 +18,9 @@ import { AppRoutingModule } from './app-router.module';
 
 // App Modules
 import { HomeModule } from './home/home.module';
-import { ParamsModule } from './params/params.module';
-import { IndividualsModule } from './individuals/individuals.module';
-import { UsersModule } from './users/users.module';
+import { ParamsModule } from './dashboard/params/params.module';
+import { IndividualsModule } from './dashboard/individuals/individuals.module';
+import { UsersModule } from './dashboard/users/users.module';
 
 
 @NgModule({

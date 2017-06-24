@@ -19,7 +19,8 @@ export class ParamCategoriesService {
 
   constructor(
     private http: Http,
-    private _conn: ConnectionService) {
+    private _conn: ConnectionService
+  ) {
     this.categoryURL = _conn.APIUrl + 'paramcategories';
   }
 

@@ -1,5 +1,5 @@
 export interface Gender {
-    ID: number;
-    Name: string;
-    EnglishName: string;
+  ID: number;
+  Name: string;
+  EnglishName: string;
 }

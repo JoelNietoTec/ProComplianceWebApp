@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
+// Services
 import { GendersService } from './services/genders.service';
 import { IndividualService } from './services/individuals.service';
 import { ParamMatricesService } from './services/param-matrices.service';
@@ -9,9 +9,15 @@ import { MatrixTypesService } from './services/matrix-types.service';
 import { ParamCategoriesService } from './services/param-categories.service';
 import { ConnectionService } from './services/connection.service';
 import { ParamTablesService } from './services/param-tables.service';
+import { ParamsService } from './services/param.service';
+
+// Components
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
-import { BooleanPipe } from './pipes/boolean.pipe';
 import { AddButtonComponent } from './components/add-button/add-button.component';
+import { CardComponent } from './components/card/card.component';
+
+// Pipes
+import { BooleanPipe } from './pipes/boolean.pipe';
 
 @NgModule({
   imports: [
@@ -27,8 +33,9 @@ import { AddButtonComponent } from './components/add-button/add-button.component
     MatrixTypesService,
     ParamCategoriesService,
     ParamTablesService,
+    ParamsService,
     ConnectionService
   ],
-  declarations: [LoadingModalComponent, BooleanPipe, AddButtonComponent]
+  declarations: [LoadingModalComponent, BooleanPipe, AddButtonComponent, CardComponent]
 })
 export class SharedModule { }

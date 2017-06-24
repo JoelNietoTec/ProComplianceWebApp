@@ -15,6 +15,7 @@ export interface ParamCategory {
   EnglishName?: string;
   Weighting?: number;
   ParamMatrixID?: number;
+  Params?: Param[];
 }
 
 export interface ParamValue {
@@ -32,5 +33,6 @@ export interface Param {
   EnglishName?: string;
   Description?: string;
   ParamTableID?: number;
+  ParamTable?: ParamTable;
   Weighting?: number;
 }
