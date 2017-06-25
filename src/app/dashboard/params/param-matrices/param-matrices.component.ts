@@ -34,7 +34,7 @@ export class ParamMatricesComponent implements OnInit {
 
   onSubmit() {
     this.newMatrix.CreateDate = new Date();
-
+    console.log(this.newMatrix);
     this._matrixService.createMatrix(this.newMatrix)
       .subscribe(data => {
         console.log(data);

@@ -4,9 +4,7 @@
 <ngb-tabset type="pills">
   <ngb-tab title="Categories">
     <ng-template ngbTabContent>
-      <div *ngIf="_matrix">
-        <param-categories [matrix]="_matrix"></param-categories>
-      </div>
+      <param-categories *ngIf="_matrix" [matrix]="_matrix"></param-categories>
     </ng-template>
   </ngb-tab>
   <ngb-tab title="Params">
