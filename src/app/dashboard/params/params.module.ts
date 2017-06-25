@@ -15,7 +15,8 @@ import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
 import { ParamTablesComponent } from './param-tables/param-tables.component';
 import { ParamTableComponent } from './param-table/param-table.component';
 import { ParamCategoryComponent } from './param-category/param-category.component';
-import { ParamRiskMatrixComponent } from './param-risk-matrix/param-risk-matrix.component';
+import { ParamCategoriesComponent } from './param-categories/param-categories.component';
+import { ParamItemsComponent } from './param-items/param-items.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ParamRiskMatrixComponent } from './param-risk-matrix/param-risk-matrix.
     ParamTablesComponent,
     ParamTableComponent,
     ParamCategoryComponent,
-    ParamRiskMatrixComponent
+    ParamCategoriesComponent,
+    ParamItemsComponent
   ]
 })
 export class ParamsModule { }

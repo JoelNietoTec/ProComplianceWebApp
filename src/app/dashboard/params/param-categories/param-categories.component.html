@@ -1,0 +1,64 @@
+<div class="row" *ngIf="matrix">
+  <div class="col-md-12" [hidden]="false">
+    <h3>Categories</h3>
+    <form (ngSubmit)="addCategory()" class="card">
+      <div class="card-block">
+        <div class="row" id="new-category-form">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input [(ngModel)]="_newCategory.Name" type="text" name="name" id="new-category-name" class="form-control" placeholder="Category Name">
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="english-name">English Name</label>
+              <input [(ngModel)]="_newCategory.EnglishName" type="text" name="english-name" id="new-category-name" class="form-control"
+                placeholder="English Category Name">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="weighting">Weighting</label>
+              <input [(ngModel)]="_newCategory.Weighting" type="number" name="weighting" id="new-category-weighting" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-12" *ngIf="matrix.ParamCategories.length > 0">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Current Categories</h4>
+        <table class="table table-sm table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>English Name</th>
+              <th>Weighting</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of matrix.ParamCategories">
+              <td>{{ category.Name }}</td>
+              <td>{{ category.EnglishName }}</td>
+              <td>{{ category.Weighting }}%</td>
+              <td class="text-center">
+                <div class="btn-group" role="group" aria-label="">
+                  <button type="button" class="btn btn-success btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                  <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

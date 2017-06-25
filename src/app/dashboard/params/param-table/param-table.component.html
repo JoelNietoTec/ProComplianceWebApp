@@ -84,7 +84,7 @@
             <tr *ngFor="let value of _table.ParamValues">
               <td>{{ value.DisplayValue }}</td>
               <td>{{ value.EnglishDisplayValue }}</td>
-              <td class="text-center">{{ value.Score }}</td>
+              <td class="text-center">{{ value.Score | number: '1.2-2' }}</td>
               <td class="text-center"><span (click)="editValue(value)"><i class="fa fa-edit text-success" aria-hidden="true"></i></span></td>
             </tr>
           </tbody>

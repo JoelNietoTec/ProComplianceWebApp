@@ -6,7 +6,6 @@ import { ParamMatricesComponent } from './param-matrices/param-matrices.componen
 import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
 import { ParamTablesComponent } from './param-tables/param-tables.component';
 import { ParamTableComponent } from './param-table/param-table.component';
-import { ParamRiskMatrixComponent } from './param-risk-matrix/param-risk-matrix.component';
 
 const routes: Routes = [
   {
@@ -23,7 +22,7 @@ const routes: Routes = [
         path: 'Tables/:id', component: ParamTableComponent
       },
       {
-        path: 'Matrices/:id', component: ParamRiskMatrixComponent
+        path: 'Matrices/:id', component: ParamMatrixComponent
       },
       {
         path: '**', pathMatch: 'full', redirectTo: 'Matrices'
@@ -38,4 +37,4 @@ const routes: Routes = [
 })
 export class ParamsRoutingModule { }
 
-export const routedComponents = [ParamsComponent, ParamRiskMatrixComponent, ParamMatricesComponent, ParamTablesComponent];
+export const routedComponents = [ParamsComponent, ParamMatricesComponent, ParamTablesComponent];
