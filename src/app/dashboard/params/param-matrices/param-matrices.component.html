@@ -9,10 +9,9 @@
       </div>
       <div class="card-block">
         <h4 class="card-title">All Matrices</h4>
-        <table class="table table-sm table-bordered">
+        <table class="table table-sm">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Code</th>
               <th>Name</th>
               <th>Type</th>
@@ -23,7 +22,6 @@
           </thead>
           <tbody>
             <tr *ngFor="let matrix of matrices">
-              <td>{{ matrix.ID }}</td>
               <td>{{ matrix.Code }}</td>
               <td>{{ matrix.Name }}</td>
               <td>{{ matrix.MatrixType.EnglishName }}</td>
