@@ -18,13 +18,14 @@ import { CardComponent } from './components/card/card.component';
 
 // Pipes
 import { BooleanPipe } from './pipes/boolean.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   exports: [
-    LoadingModalComponent
+    LoadingModalComponent, SortPipe
   ],
   providers: [
     GendersService,
@@ -36,6 +37,6 @@ import { BooleanPipe } from './pipes/boolean.pipe';
     ParamsService,
     ConnectionService
   ],
-  declarations: [LoadingModalComponent, BooleanPipe, AddButtonComponent, CardComponent]
+  declarations: [LoadingModalComponent, BooleanPipe, AddButtonComponent, CardComponent, SortPipe]
 })
 export class SharedModule { }
