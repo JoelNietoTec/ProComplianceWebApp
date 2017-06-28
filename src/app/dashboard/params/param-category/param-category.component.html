@@ -30,7 +30,7 @@
           <td><input [(ngModel)]="_param.Weighting" type="text" class="form-control form-control-sm" name="weighting"></td>
           <td>
             <select [(ngModel)]="_param.ParamTable" class="custom-select form-control form-control-sm" *ngIf="tables">
-              <option *ngFor="let table of tables | sortBy : 'EnglishName'" [ngValue]="table">{{ table.EnglishName }}</option>
+              <option *ngFor="let table of tables" [ngValue]="table">{{ table.EnglishName }}</option>
             </select>
           </td>
           <td class="text-center">

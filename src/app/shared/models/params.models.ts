@@ -6,6 +6,8 @@ export interface ParamTable {
   EnglishName?: string;
   CreateDate?: Date;
   ModificateDate?: Date;
+  TableTypeID?: number;
+  TableType?: TableType;
   ParamValues?: ParamValue[];
 }
 
@@ -35,4 +37,10 @@ export interface Param {
   ParamTableID?: number;
   ParamTable?: ParamTable;
   Weighting?: number;
+}
+
+export interface TableType {
+  ID: number;
+  Name: string;
+  EnglishName: string;
 }

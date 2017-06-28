@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Services
+// Model Services
 import { GendersService } from './services/genders.service';
 import { IndividualService } from './services/individuals.service';
 import { ParamMatricesService } from './services/param-matrices.service';
@@ -10,6 +10,10 @@ import { ParamCategoriesService } from './services/param-categories.service';
 import { ConnectionService } from './services/connection.service';
 import { ParamTablesService } from './services/param-tables.service';
 import { ParamsService } from './services/param.service';
+
+// Services
+
+import { UtilitiesService } from './services/utilities.service';
 
 // Components
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
@@ -35,7 +39,8 @@ import { SortPipe } from './pipes/sort.pipe';
     ParamCategoriesService,
     ParamTablesService,
     ParamsService,
-    ConnectionService
+    ConnectionService,
+    UtilitiesService
   ],
   declarations: [LoadingModalComponent, BooleanPipe, AddButtonComponent, CardComponent, SortPipe]
 })

@@ -13,15 +13,17 @@
             <tr>
               <th>Name</th>
               <th>English Name</th>
+              <th>Type</th>
               <th>Create Date</th>
               <th>Modificate Date</th>
               <th class="text-center">Values</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let table of tables | sortBy : 'Name'">
+            <tr *ngFor="let table of tables">
               <td>{{ table.Name }}</td>
               <td>{{ table.EnglishName }}</td>
+              <td>{{table.TableType.EnglishName }}</td>
               <td>{{ table.CreateDate | date:'medium' }}</td>
               <td>{{ table.ModificateDate }}</td>
               <td class="text-center"><a [routerLink]="[table.ID]">{{ table.ParamValues.length }}</a></td>
@@ -36,16 +38,24 @@
           New Table
         </h4>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="form-group">
               <label for="name">Name</label>
               <input [(ngModel)] = "newTable.Name" type="text" name="name" id="name" class="form-control" placeholder="Table Name" [disabled]="_saving">
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="form-group">
               <label for="english-name">English Name</label>
               <input [(ngModel)] = "newTable.EnglishName" type="text" name="english-name" id="english-name" class="form-control" placeholder="Table English Name" [disabled]="_saving">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="table-type">Table Types</label>
+              <select [(ngModel)] = "newTable.TableTypeID" class="custom-select form-control" name="table-type" id="table-type">
+                <option *ngFor="let type of _tableTypes" value="type.ID">{{ type.EnglishName }}</option>
+              </select>
             </div>
           </div>
         </div>

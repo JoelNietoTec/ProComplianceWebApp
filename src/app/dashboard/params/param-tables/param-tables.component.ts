@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ParamTablesService } from '../../../shared/services/param-tables.service';
-import { ParamTable, ParamValue } from '../../../shared/models/params.models';
+import { ParamTable, ParamValue, TableType } from '../../../shared/models/params.models';
+import { UtilitiesService } from '../../../shared/services/utilities.service';
 
 @Component({
   selector: 'app-param-tables',
@@ -12,19 +13,33 @@ import { ParamTable, ParamValue } from '../../../shared/models/params.models';
 export class ParamTablesComponent implements OnInit {
 
   tables: ParamTable[];
+  _tableTypes: TableType[];
   _showNewTable: boolean;
   newTable: ParamTable = {};
   _saving: boolean = false;
 
   constructor(
-    private _tablesService: ParamTablesService
+    private _tablesService: ParamTablesService,
+    private _utilities: UtilitiesService
   ) { }
 
   ngOnInit() {
+    this._tableTypes = [
+      {
+        ID: 1,
+        Name: 'Simple',
+        EnglishName: 'Simple'
+      },
+      {
+        ID: 2,
+        Name: 'Complejo',
+        EnglishName: 'Complex'
+      }
+    ];
+
     this._tablesService.getTables()
       .subscribe(data => {
-        this.tables = data;
-        console.log(data);
+        this.tables = this._utilities.sortBy(data, 'Name');
       });
   }
 
