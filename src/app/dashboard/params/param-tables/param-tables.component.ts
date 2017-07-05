@@ -46,7 +46,8 @@ export class ParamTablesComponent implements OnInit {
   onSubmit() {
     this._saving = true;
     this.newTable.CreateDate = new Date();
-
+    this.newTable.TableTypeID = this.newTable.TableType.ID;
+    console.log(this.newTable);
     this._tablesService.createtable(this.newTable)
       .subscribe(data => {
         console.log(data);

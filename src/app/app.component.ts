@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb';
 
 @Component({
@@ -7,8 +8,10 @@ import { BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private breadcrumb: BreadcrumbService) {
+  constructor(
+    private breadcrumb: BreadcrumbService
+  ) {
     breadcrumb.hideRoute('/Home');
   }
-  title = 'app works!';
+
 }

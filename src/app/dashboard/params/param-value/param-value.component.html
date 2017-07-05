@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">
+      Group: {{ _value.DisplayValue }}
+    </h4>
+    <table class="table table-sm table-bordered">
+      <thead>
+        <tr>
+          <th>Display</th>
+          <th>English Display</th>
+          <th>Score</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of _value.ParamSubValues">
+          <td>{{ item.DisplayValue }}</td>
+          <td>{{ item.EnglishDisplayValue}}</td>
+          <td>{{ item.Score }}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><input [(ngModel)]="_newSubValue.DisplayValue" class="form-control form-control-sm" name="name" type="text"></td>
+          <td><input [(ngModel)]="_newSubValue.EnglishDisplayValue" type="text" name="english-name" class="form-control form-control-sm"></td>
+          <td><input [(ngModel)]="_newSubValue.Score" type="number" class="form-control form-control-sm" name="score"></td>
+          <td class="text-center">
+            <div class="btn btn-primary btn-sm" (click)="addValue()"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

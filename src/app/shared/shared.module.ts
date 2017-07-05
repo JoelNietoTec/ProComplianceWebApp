@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // Model Services
 import { GendersService } from './services/genders.service';
-import { IndividualService } from './services/individuals.service';
+import { ParticipantsService } from './services/participants.service';
 import { ParamMatricesService } from './services/param-matrices.service';
 import { MatrixTypesService } from './services/matrix-types.service';
 import { ParamCategoriesService } from './services/param-categories.service';
@@ -33,7 +33,7 @@ import { SortPipe } from './pipes/sort.pipe';
   ],
   providers: [
     GendersService,
-    IndividualService,
+    ParticipantsService,
     ParamMatricesService,
     MatrixTypesService,
     ParamCategoriesService,

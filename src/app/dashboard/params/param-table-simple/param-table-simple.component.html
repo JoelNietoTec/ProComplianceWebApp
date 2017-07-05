@@ -1,0 +1,91 @@
+<div id="card-edit" *ngIf="_editing">
+  <div class="card card-outline-success">
+    <div class="card-block">
+      <h4 class="card-title">
+        Editing Value
+      </h4>
+      <form (ngSubmit)="onSaveValue()" class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="display">Display Value</label>
+            <input type="text" [(ngModel)]="_currentValue.DisplayValue" name="display" id="display" class="form-control" placeholder="Display Value"
+              [disabled]="_saving">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="english-display">English Display Value</label>
+            <input type="text" [(ngModel)]="_currentValue.EnglishDisplayValue" name="english-display" id="english-display" class="form-control"
+              placeholder="English Display Value" [disabled]="_saving">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="score">Score</label>
+            <input type="number" [(ngModel)]="_currentValue.Score" name="score" id="score" class="form-control" [disabled]="_saving">
+          </div>
+        </div>
+        <div class="col-md-2 d-flex p-2 align-items-end form-group">
+          <button type="submit " class="btn btn-success align-bottom" [disabled]="_saving">Save Changes <i class="fa fa-lock" aria-hidden="true" ></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div *ngIf="!_editing">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">
+        New Value
+      </h4>
+      <form (ngSubmit)="onSubmit()" class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="display">Display Value</label>
+            <input type="text" [(ngModel)]="_newValue.DisplayValue" name="display" id="display" class="form-control" placeholder="Display Value"
+              [disabled]="_saving">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="english-display">English Display Value</label>
+            <input type="text" [(ngModel)]="_newValue.EnglishDisplayValue" name="english-display" id="english-display" class="form-control"
+              placeholder="English Display Value" [disabled]="_saving">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="score">Score</label>
+            <input type="number" [(ngModel)]="_newValue.Score" name="score" id="score" class="form-control" [disabled]="_saving">
+          </div>
+        </div>
+        <div class="col-md-2 d-flex p-2 align-items-end form-group">
+          <button type="submit " class="btn btn-primary align-bottom" [disabled]="_saving">Add <i class="fa fa-plus-circle" aria-hidden="true" ></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Table Values</h4>
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th>Display Value</th>
+          <th>English Display Value</th>
+          <th class="text-center">Score</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let value of _table.ParamValues">
+          <td>{{ value.DisplayValue }}</td>
+          <td>{{ value.EnglishDisplayValue }}</td>
+          <td class="text-center">{{ value.Score | number: '1.2-2' }}</td>
+          <td class="text-center"><span (click)="editValue(value)"><i class="fa fa-edit text-success" aria-hidden="true"></i></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

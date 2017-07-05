@@ -1,0 +1,34 @@
+<fieldset>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="">Matrix</label>
+        <select [(ngModel)]="_matrix" class="form-control custom-select" name="" id="">
+      <option selected>Select one</option>
+      <option *ngFor="let matrix of _matrices" [ngValue]="matrix">{{ matrix.Name }}</option>
+    </select>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<form *ngIf="_matrix">
+  <div class="card" *ngFor="let category of _matrix.ParamCategories">
+    <div class="card-header">{{ category.EnglishName }}</div >
+    <div class="card-block row">
+      <div class="col-md-6" *ngFor="let param of category.Params">
+        <div class="form-group">
+          <label for="">{{ param.EnglishName }}</label>
+          <select *ngIf="param.ParamTable.TableTypeID == 1" class="form-control custom-select" name="" id="">
+            <option  *ngFor="let value of param.ParamTable.ParamValues" value="value.ID">{{ value.DisplayValue }}</option>
+          </select>
+          <select *ngIf="param.ParamTable.TableTypeID == 2" class="form-control custom-select" name="" id="">
+            <optgroup *ngFor="let value of param.ParamTable.ParamValues" label="{{value.DisplayValue}}">
+              <option *ngFor="let subvalue of value.ParamSubValues" value="subvalue.ID">{{ subvalue.DisplayValue }}</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

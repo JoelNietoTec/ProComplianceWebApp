@@ -1,0 +1,40 @@
+<div class="row d-flex justify-content-center animated fadeIn" *ngIf="!_participants">
+  <img src="assets/img/spinner.gif" class="spinner">
+</div>
+<div *ngIf="_participants" class="card animated fadeIn">
+  <div class="card-header">
+    <a class="btn btn-primary animated fadeIn" href="#" role="button" [routerLink]="['New']">New <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+  </div>
+  <div class="card-block card-table">
+    <h4 class="card-title">All Participants</h4>
+    <table class="table table-hover table-sm">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>First Name</th>
+          <th>Second Name</th>
+          <th>Third Name</th>
+          <th>Fourth Name</th>
+          <th>Gender</th>
+          <th>Birth Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let participant of _participants">
+          <td>{{ participant.ID }}</td>
+          <td>{{ participant.ParticipantType.EnglishName }}</td>
+          <td>{{ participant.FirstName }}</td>
+          <td>{{ participant.SecondName }}</td>
+          <td>{{ participant.ThirdName }}</td>
+          <td>{{ participant.FourthName }}</td>
+          <td>{{ participant.Gender.EnglishName }}</td>
+          <td>{{ participant.BirthDate | date:'mediumDate' }}</td>
+          <td>
+            <a [routerLink]="['/Participants', participant.ID]"><i class="fa fa-id-card" aria-hidden="true" placement="left" ngbTooltip="Details"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

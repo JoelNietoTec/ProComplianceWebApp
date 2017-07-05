@@ -25,6 +25,7 @@ export interface ParamValue {
   ParamTableID?: number;
   DisplayValue?: string;
   EnglishDisplayValue?: string;
+  ParamSubValues?: ParamSubValue[];
   Score?: number;
 }
 
@@ -43,4 +44,12 @@ export interface TableType {
   ID: number;
   Name: string;
   EnglishName: string;
+}
+
+export interface ParamSubValue {
+  ID?: number;
+  ParamValueID?: number;
+  DisplayValue?: string;
+  EnglishDisplayValue?: string;
+  Score?: number;
 }

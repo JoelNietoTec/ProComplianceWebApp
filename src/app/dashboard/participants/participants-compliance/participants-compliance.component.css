@@ -1,0 +1,13 @@
+fieldset {
+  border: 1px solid #d6d6d6;
+  padding: 15px !important;
+  margin: 15px 0;
+}
+
+legend {
+  width: auto !important;
+}
+
+optgroup, .card-header {
+  font-weight: bold;
+}

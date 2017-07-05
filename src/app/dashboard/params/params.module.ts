@@ -12,11 +12,15 @@ import { ParamsRoutingModule } from './params-router.module';
 import { ParamsComponent } from './params.component';
 import { ParamMatricesComponent } from './param-matrices/param-matrices.component';
 import { ParamMatrixComponent } from './param-matrix/param-matrix.component';
+import { ParamMatrixDetailsComponent } from './param-matrix-details/param-matrix-details.component';
 import { ParamTablesComponent } from './param-tables/param-tables.component';
+import { ParamTableComplexComponent } from './param-table-complex/param-table-complex.component';
+import { ParamTableSimpleComponent } from './param-table-simple/param-table-simple.component';
 import { ParamTableComponent } from './param-table/param-table.component';
 import { ParamCategoryComponent } from './param-category/param-category.component';
 import { ParamCategoriesComponent } from './param-categories/param-categories.component';
 import { ParamItemsComponent } from './param-items/param-items.component';
+import { ParamValueComponent } from './param-value/param-value.component';
 
 
 @NgModule({
@@ -33,11 +37,15 @@ import { ParamItemsComponent } from './param-items/param-items.component';
     ParamsComponent,
     ParamMatricesComponent,
     ParamMatrixComponent,
+    ParamMatrixDetailsComponent,
     ParamTablesComponent,
+    ParamTableSimpleComponent,
+    ParamTableComplexComponent,
     ParamTableComponent,
     ParamCategoryComponent,
     ParamCategoriesComponent,
-    ParamItemsComponent
+    ParamItemsComponent,
+    ParamValueComponent
   ]
 })
 export class ParamsModule { }

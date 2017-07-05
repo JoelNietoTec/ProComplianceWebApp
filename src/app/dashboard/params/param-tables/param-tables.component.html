@@ -53,8 +53,8 @@
           <div class="col-md-2">
             <div class="form-group">
               <label for="table-type">Table Types</label>
-              <select [(ngModel)] = "newTable.TableTypeID" class="custom-select form-control" name="table-type" id="table-type">
-                <option *ngFor="let type of _tableTypes" value="type.ID">{{ type.EnglishName }}</option>
+              <select [(ngModel)] = "newTable.TableType" class="custom-select form-control" name="table-type" id="table-type">
+                <option *ngFor="let type of _tableTypes" [ngValue]="type">{{ type.EnglishName }}</option>
               </select>
             </div>
           </div>

@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { ParamsComponent } from './dashboard/params/params.component';
-import { IndividualsComponent } from './dashboard/individuals/individuals.component';
+import { ParticipantsComponent } from './dashboard/participants/participants.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Params', component: ParamsComponent },
-  { path: 'Individuals', component: IndividualsComponent},
+  { path: 'Participants', component: ParticipantsComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'Home' }
 ];
 
@@ -18,4 +18,8 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routedComponents = [HomeComponent, ParamsComponent, IndividualsComponent];
+export const routedComponents = [
+  HomeComponent,
+  ParamsComponent,
+  ParticipantsComponent
+];

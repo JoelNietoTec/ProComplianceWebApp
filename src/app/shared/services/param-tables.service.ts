@@ -5,17 +5,19 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { ConnectionService } from './connection.service';
-import { ParamTable, ParamValue } from './../models/params.models';
+import { ParamTable, ParamValue, ParamSubValue } from './../models/params.models';
 
 @Injectable()
 export class ParamTablesService {
 
   private tablesURL: string;
   private valuesURL: string;
+  private subValuesURL: string;
   private tables: ParamTable[];
   private table: ParamTable;
   private newTable: ParamTable;
   private newValue: ParamValue;
+  private newSubValue: ParamSubValue;
   private _headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(
@@ -24,6 +26,7 @@ export class ParamTablesService {
   ) {
     this.tablesURL = _conn.APIUrl + 'paramtables';
     this.valuesURL = _conn.APIUrl + 'paramvalues';
+    this.subValuesURL = _conn.APIUrl + 'paramsubvalues';
   }
 
   getTables() {
@@ -59,6 +62,15 @@ export class ParamTablesService {
       .map(response => {
         this.newValue = response.json();
         return this.newValue;
+      });
+  }
+
+  addSubValue(val: ParamSubValue): Observable<ParamSubValue> {
+    return this._http
+      .post(this.subValuesURL, JSON.stringify(val), { headers: this._headers })
+      .map(response => {
+        this.newSubValue = response.json();
+        return this.newSubValue;
       });
   }
 
