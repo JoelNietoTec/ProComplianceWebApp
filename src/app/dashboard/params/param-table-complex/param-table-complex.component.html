@@ -1,1 +1,25 @@
+<form (ngSubmit)="onSubmit()" class="card">
+  <div class="card-block">
+    <h4 class="card-title">
+      New Group
+    </h4>
+    <div action="" class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="display">Group Name</label>
+          <input [(ngModel)]="_newValue.DisplayValue" type="text" name="display" id="display" class="form-control" placeholder="Group Display Value">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="display">Group English Name</label>
+          <input [(ngModel)]="_newValue.EnglishDisplayValue" type="text" name="display" id="display" class="form-control" placeholder="Group English Display Value">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary">Add <i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+  </div>
+</form>
 <param-value *ngFor="let value of _table.ParamValues" [_value]="value"></param-value>

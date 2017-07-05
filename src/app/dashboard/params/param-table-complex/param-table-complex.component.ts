@@ -22,5 +22,16 @@ export class ParamTableComplexComponent implements OnInit {
     private _tableService: ParamTablesService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._newValue = {};
+  }
+
+  onSubmit() {
+    this._newValue.ParamTableID = this._table.ID;
+    this._tableService.addValue(this._newValue)
+    .subscribe(data => {
+      this._table.ParamValues.push(data);
+      this._newValue = {};
+    });
+  }
 }
