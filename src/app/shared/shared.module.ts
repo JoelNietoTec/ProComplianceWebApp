@@ -19,6 +19,7 @@ import { UtilitiesService } from './services/utilities.service';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { CardComponent } from './components/card/card.component';
+import { MatrixControlComponent } from './components/matrix-control/matrix-control.component'
 
 // Pipes
 import { BooleanPipe } from './pipes/boolean.pipe';
@@ -42,6 +43,12 @@ import { SortPipe } from './pipes/sort.pipe';
     ConnectionService,
     UtilitiesService
   ],
-  declarations: [LoadingModalComponent, BooleanPipe, AddButtonComponent, CardComponent, SortPipe]
+  declarations: [
+    LoadingModalComponent,
+    BooleanPipe,
+    AddButtonComponent,
+    CardComponent,
+    SortPipe,
+    MatrixControlComponent]
 })
 export class SharedModule { }
