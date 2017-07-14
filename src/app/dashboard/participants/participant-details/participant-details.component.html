@@ -19,8 +19,12 @@
           <div class="container">
             <div class="row">
               <div class="col-md-4 text-center info-section">
-                <h4 class="user-name">{{ _participant.FirstName }} {{ _participant.SecondName }} {{_participant.ThirdName }} {{ _participant.FourthName
-                  }}</h4>
+                <h4 class="user-name" *ngIf="_participant.ParticipantTypeID == 1">
+                  {{ _participant.FirstName }} {{ _participant.SecondName }} {{_participant.ThirdName }} {{ _participant.FourthName}}
+                  </h4>
+                  <h4 class="user-name" *ngIf="_participant.ParticipantTypeID == 2">
+                    {{ _participant.FirstName }}
+                  </h4>
                 <img src="assets/img/user.jpg" alt="" class="img-thumbnail img-fluid user-img">
                 <h4 class="section-title">General Info</h4>
                 <table class="table table-sm">
@@ -51,7 +55,7 @@
       </div>
       <div class="tab-pane" id="matrix" role="tabpanel">
         <div class="card-block">
-          <participants-compliance></participants-compliance>
+          <participants-compliance [participant]="_participant"></participants-compliance>
         </div>
       </div>
     </div>

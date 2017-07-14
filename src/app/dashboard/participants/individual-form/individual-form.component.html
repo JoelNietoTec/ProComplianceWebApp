@@ -1,0 +1,101 @@
+<div class="card animated fadeIn">
+  <div class="card-block">
+    <h4 class="card-title">
+      Individual Form
+    </h4>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input [(ngModel)]="_individual.FirstName" type="text" name="first-name" id="first-name" class="form-control" placeholder="Participant´s First Name"
+            aria-describedby="helpId">
+          <small id="helpId" class="text-muted">*Required</small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="second-name">Second Name</label>
+          <input type="text" [(ngModel)]="_individual.SecondName" name="second-name" id="second-name" class="form-control" placeholder="Participant´s Second Name"
+            aria-describedby="helpId">
+          <small id="helpId" class="text-muted">*When is provided</small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="firs-name">Third Name</label>
+          <input type="text" [(ngModel)]="_individual.ThirdName" name="third-name" id="third-name" class="form-control" placeholder="Participant´s Third Name"
+            aria-describedby="helpId">
+          <small id="helpId" class="text-muted">*When is provided</small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="fourth-name">Fourth Name</label>
+          <input type="text" [(ngModel)]="_individual.FourthName" name="fourth-name" id="fourth-name" class="form-control" placeholder="Participant´s Fourth Name"
+            aria-describedby="helpId">
+          <small id="helpId" class="text-muted">*When is provided</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="birthDate">Birth Date</label>
+          <div class="input-group">
+            <input class="form-control" [(ngModel)]="_individual.formBirthDate" [startDate]="_startDate" [maxDate]="_maxDate" [minDate]="_minDate" placeholder="YYYY-MM-DD" name="dp" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-addon" (click)="d.toggle()">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+            </div>
+          </div>
+          <small id="birthdateHelp" class="text-muted">*Select one</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="custom-select form-control" [(ngModel)]="_individual.GenderID" name="GenderID" id="GenderID" required>
+                  <option [value]="_default" disabled="true">Select one</option>
+                  <option *ngFor="let gender of _genders" [value]="gender.ID">{{ gender.EnglishName }}</option>
+                </select>
+          <small id="gender" class="text-muted">*Select one</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="_individual.Email" name="email" id="email" aria-describedby="helpId" placeholder="example@domain.com">
+          <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="website">WebSite</label>
+          <input type="url" class="form-control" [(ngModel)]="_individual.WebSite" name="website" id="website" aria-describedby="helpId" placeholder="http://example.com">
+          <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="phone-number">Phone Number</label>
+          <input type="tel" class="form-control" [(ngModel)]="_individual.Phone" name="phone-number" id="phone-number" aria-describedby="helpId" placeholder="9999-9999">
+          <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="mobile-phone">Mobile Phone Number</label>
+          <input type="tel" class="form-control" [(ngModel)]="_individual.MobilePhone" name="mobile-phone" id="mobile-phone" aria-describedby="helpId" placeholder="9999-9999">
+          <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Address</label>
+          <textarea class="form-control" name="" id="" rows="3" [(ngModel)]="_individual.Address"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button type="button" class="btn btn-primary float-right" (click)="saveIndividual()"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+    <a [routerLink]="['/Participants']" class="btn btn-danger float-right" role="button"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</a>
+  </div>
+</div>

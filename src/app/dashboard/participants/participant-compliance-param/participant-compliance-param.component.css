@@ -1,0 +1,8 @@
+optgroup, .card-header {
+  font-weight: bold;
+}
+
+select.form-control-danger {
+  color: #d9534f;
+  font-weight: bold;
+}

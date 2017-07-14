@@ -7,6 +7,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 // Packages Dependencies
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb';
+import { ToastyModule } from 'ng2-toasty';
 
 // Main Dependencies
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { UsersModule } from './dashboard/users/users.module';
     HttpModule,
     NgbModule.forRoot(),
     Ng2BreadcrumbModule.forRoot(),
+    ToastyModule.forRoot(),
     CoreModule,
     SharedModule,
     HomeModule,

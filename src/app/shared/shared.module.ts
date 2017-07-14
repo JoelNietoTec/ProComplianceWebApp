@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ToastyModule } from 'ng2-toasty';
 
 // Model Services
 import { GendersService } from './services/genders.service';
@@ -12,14 +13,13 @@ import { ParamTablesService } from './services/param-tables.service';
 import { ParamsService } from './services/param.service';
 
 // Services
-
 import { UtilitiesService } from './services/utilities.service';
 
 // Components
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { CardComponent } from './components/card/card.component';
-import { MatrixControlComponent } from './components/matrix-control/matrix-control.component'
+import { MatrixControlComponent } from './components/matrix-control/matrix-control.component';
 
 // Pipes
 import { BooleanPipe } from './pipes/boolean.pipe';
@@ -27,10 +27,13 @@ import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ToastyModule.forRoot()
   ],
   exports: [
-    LoadingModalComponent, SortPipe
+    LoadingModalComponent,
+    SortPipe,
+    ToastyModule
   ],
   providers: [
     GendersService,

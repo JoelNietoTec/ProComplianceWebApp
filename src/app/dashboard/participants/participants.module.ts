@@ -12,6 +12,9 @@ import { ParticipantsListComponent } from './participants-list/participants-list
 import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
 import { ParticipantsComplianceComponent } from './participants-compliance/participants-compliance.component';
 import { ParticipantsMatrixFormComponent } from './participants-matrix-form/participants-matrix-form.component';
+import { ParticipantComplianceParamComponent } from './participant-compliance-param/participant-compliance-param.component';
+import { IndividualFormComponent } from './individual-form/individual-form.component';
+import { EntityFormComponent } from './entitiy-form/entity-form.component';
 
 @NgModule({
   imports: [
@@ -27,7 +30,10 @@ import { ParticipantsMatrixFormComponent } from './participants-matrix-form/part
     ParticipantsListComponent,
     ParticipantDetailsComponent,
     ParticipantsComplianceComponent,
-    ParticipantsMatrixFormComponent
+    ParticipantsMatrixFormComponent,
+    ParticipantComplianceParamComponent,
+    IndividualFormComponent,
+    EntityFormComponent
   ]
 })
 export class ParticipantsModule { }

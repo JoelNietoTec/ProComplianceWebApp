@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400');
 
-body, button, input, input.form-control, optgroup, select, select.form-control, textarea, .tooltip {
-    font-family: 'Roboto', sans-serif;
+body, button, input, input.form-control, optgroup, select, select.form-control, textarea, textarea.form-control, .tooltip {
+    font-family: 'Comfortaa', sans-serif;
     font-weight: 300;
     font-size: 13px;
 }
@@ -21,6 +21,10 @@ body, button, input, input.form-control, optgroup, select, select.form-control, 
 
 .card, .form-control, .input-group, .input-group-addon, .breadcrumb, .btn, .card-header, .card-footer {
   border-radius: 0 !important;
+}
+
+.btn-sm {
+  font-size: .75em;
 }
 
 /*.card, .breadcrumb, .btn, .navbar {

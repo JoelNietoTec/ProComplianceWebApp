@@ -4,7 +4,7 @@
   <a [routerLink]="['Edit']" class="btn btn-primary">Edit <i class="fa fa-edit" aria-hidden="true"></i></a>
 </h3>
 <div *ngIf="_matrix">
-  <div class="card" *ngFor="let category of _matrix.ParamCategories">
+  <!--<div class="card" *ngFor="let category of _matrix.ParamCategories">
     <div class="card-block">
       <h4 class="card-title">
         {{ category.EnglishName }} / {{ category.Weighting }}%
@@ -27,6 +27,39 @@
             <td>{{ param.ParamTable.EnglishName}}</td>
             <td>{{ param.Weighting }}</td>
           </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>-->
+
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Risk Matrix</h4>
+      <table class="table table table-sm">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>English Name</th>
+            <th>Description</th>
+            <th>Table</th>
+            <th>Weighting</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let category of _matrix.ParamCategories">
+            <tr class="bg-primary text-white font-weight-bold">
+              <td colspan="4">{{ category.EnglishName }}</td>
+              <td>{{ category.Weighting }}%</td>
+              </tr>
+            <tr *ngFor="let param of category.Params">
+              <td>{{ param.Name }}</td>
+              <td>{{ param.EnglishName }}</td>
+              <td>{{ param.Description }}</td>
+              <td>{{ param.ParamTable.EnglishName}}</td>
+              <td>{{ param.Weighting }}%</td>
+            </tr>
+            <tr><td colspan="5"></td></tr>
+          </ng-container>
         </tbody>
       </table>
     </div>

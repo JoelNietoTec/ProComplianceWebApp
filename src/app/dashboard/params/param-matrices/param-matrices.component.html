@@ -28,10 +28,9 @@
               <td>{{ matrix.Description }}</td>
               <td>{{ matrix.CreateDate | date: 'mediumDate' }}</td>
               <td class="text-center">
-                <div class="btn-group" role="group" aria-label="">
-                  <a [routerLink]="[matrix.ID]" class="btn btn-sm btn-primary" placement="top" ngbTooltip="Details"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                  <a [routerLink]="[matrix.ID, 'Edit']" class="btn btn-sm btn-success" placement="top" ngbTooltip="Edit"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                </div>
+
+                <a [routerLink]="[matrix.ID]" class="btn btn-sm btn-primary" placement="top" ngbTooltip="Details">Info <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                <a [routerLink]="[matrix.ID, 'Edit']" class="btn btn-sm btn-success" placement="top" ngbTooltip="Edit">Edit <i class="fa fa-edit" aria-hidden="true"></i></a>
               </td>
             </tr>
           </tbody>
