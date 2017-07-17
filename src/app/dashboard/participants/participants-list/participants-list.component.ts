@@ -11,6 +11,8 @@ import { ParticipantsService } from '../../../shared/services/participants.servi
 export class ParticipantsListComponent implements OnInit {
 
   _participants: Participant[];
+  _entities: Participant[];
+  _individuals: Participant[];
 
   constructor(
     private _partServ: ParticipantsService
@@ -20,7 +22,13 @@ export class ParticipantsListComponent implements OnInit {
     this._partServ.getParticipants()
       .subscribe(data => {
         this._participants = data;
+        this.classify();
       });
+  }
+
+  classify() {
+    this._entities = this._participants.filter(item => item.ParticipantTypeID === 2);
+    this._individuals = this._participants.filter(item => item.ParticipantTypeID === 1);
   }
 
 }

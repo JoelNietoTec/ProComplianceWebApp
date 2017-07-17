@@ -1,0 +1,8 @@
+<h4>Participant Info</h4>
+<div class="row">
+  <div class="col-md-6 participant-info" *ngFor="let part of participant.ParticipantParams">
+    <span class="text-primary">{{ part.Param.EnglishName }}</span>
+    <h6 *ngIf="part.ParamSubValueID">{{ part.ParamSubValue.EnglishDisplayValue }} </h6>
+    <h6 *ngIf="!part.ParamSubValueID">{{ part.ParamValue.EnglishDisplayValue }}</h6>
+  </div>
+</div>

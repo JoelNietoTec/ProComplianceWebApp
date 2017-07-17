@@ -1,4 +1,5 @@
 import { Gender } from './genders.model';
+import { Param, ParamValue, ParamSubValue } from './params.models';
 
 export interface Participant {
   ID?: number;
@@ -21,6 +22,7 @@ export interface Participant {
   ParticipantContacts?: ParticipantContact[];
   ParamMatrixID?: number;
   ParticipantParams?: ParticipantParam[];
+  Score?: number;
 }
 
 export interface ParticipantParam {
@@ -29,8 +31,11 @@ export interface ParticipantParam {
   ParamMatrixID?: number;
   ParamCategoryID?: number;
   ParamID?: number;
+  Param?: Param;
   ParamValueID?: number;
+  ParamValue?: ParamValue;
   ParamSubValueID?: number;
+  ParamSubValue?: ParamSubValue;
   Score?: number;
 }
 

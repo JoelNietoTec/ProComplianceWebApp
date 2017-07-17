@@ -21,4 +21,10 @@ export class UtilitiesService {
   filterByID(array: Array<any>, id: number): any {
     return array.find(item => item.ID === id);
   }
+
+  getAge(birthdate: Date): number {
+    const NOW = new Date();
+    let date = new Date(birthdate);
+    return NOW.getFullYear() - date.getFullYear();
+  }
 }

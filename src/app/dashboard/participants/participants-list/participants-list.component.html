@@ -2,38 +2,51 @@
   <img src="assets/img/spinner.gif" class="spinner">
 </div>
 <div *ngIf="_participants" class="card animated fadeIn">
-  <div class="card-block card-table">
-    <h4 class="card-title">All Participants</h4>
-    <table class="table table-sm">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Type</th>
-          <th>First Name</th>
-          <th>Second Name</th>
-          <th>Third Name</th>
-          <th>Fourth Name</th>
-          <th>Gender</th>
-          <th>Birth Date</th>
-          <th class="text-center">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let participant of _participants">
-          <td>{{ participant.ID }}</td>
-          <td>{{ participant.ParticipantType.EnglishName }}</td>
-          <td>{{ participant.FirstName }}</td>
-          <td>{{ participant.SecondName }}</td>
-          <td>{{ participant.ThirdName }}</td>
-          <td>{{ participant.FourthName }}</td>
-          <td>{{ participant.Gender.EnglishName }}</td>
-          <td>{{ participant.BirthDate | date:'mediumDate' }}</td>
-          <td class="text-center">
-            <a [routerLink]="['/Participants', participant.ID]" class="btn btn-primary btn-sm" placement="left" ngbTooltip="Details">View <i class="fa fa-eye" aria-hidden="true"></i></a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <ngb-tabset type="pills">
+    <ngb-tab title="Individuals">
+      <ng-template ngbTabContent>
+        <div class="container-fluid">
+          <h4 class="card-title">All Participants</h4>
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Third Name</th>
+                <th>Fourth Name</th>
+                <th>Gender</th>
+                <th>Birth Date</th>
+                <th>Email</th>
+                <th>WebSite</th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let participant of _individuals">
+                <td>{{ participant.ID }}</td>
+                <td>{{ participant.FirstName }}</td>
+                <td>{{ participant.SecondName }}</td>
+                <td>{{ participant.ThirdName }}</td>
+                <td>{{ participant.FourthName }}</td>
+                <td>{{ participant.Gender.EnglishName }}</td>
+                <td>{{ participant.BirthDate | date:'mediumDate' }}</td>
+                <td>{{ participant.Email }}</td>
+                <td>{{ participant.WebSite }}</td>
+                <td class="text-center">
+                  <a [routerLink]="['/Participants', participant.ID]" class="btn btn-primary btn-sm" placement="left" ngbTooltip="Details">View <i class="fa fa-eye" aria-hidden="true"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Entities">
+      <ng-template ngbTabContent>
+        <entities-list [entities]="_entities"></entities-list>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
   <div class="card-footer">
     <a class="btn btn-primary animated fadeIn" href="#" role="button" [routerLink]="['New']">New <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
   </div>

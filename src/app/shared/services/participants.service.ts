@@ -54,12 +54,28 @@ export class ParticipantsService {
       });
   }
 
+  updateParticipant(_id: number, _part: Participant): Observable<Participant> {
+    return this._http
+      .put(`${this._partURL}/${_id}`, JSON.stringify(_part), { headers: this._headers })
+      .map(response => {
+        return response.json();
+      });
+  }
+
   updateParam(_id: number, _param: ParticipantParam): Observable<ParticipantParam> {
     return this._http
       .put(this._paramURL + '/' + _id, JSON.stringify(_param), { headers: this._headers })
       .map(response => {
         this._newParam = response.json();
         return this._newParam;
+      });
+  }
+
+  getScore(_id: number) {
+    return this._http
+      .get(`${this._partURL}/${_id}/score`)
+      .map(response => {
+        return response.json();
       });
   }
 

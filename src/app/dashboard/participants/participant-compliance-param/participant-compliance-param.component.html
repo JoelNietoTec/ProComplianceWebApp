@@ -1,12 +1,12 @@
 <div class="form-group">
-  <div class="form-group" [ngClass]="{'has-danger': !_currentValue, 'has-success': _currentValue}">
+  <div class="form-group" [ngClass]="{'has-danger': !_currentValue && !_currentSubValue, 'has-success': _currentValue || _currentSubValue}">
     <label class="form-control-label" for="">{{ param.EnglishName }} </label>
     <ng-container [ngSwitch]="param.ParamTable.TableTypeID">
       <select [ngClass]="{'form-control-danger': !_currentValue, 'form-control-success': _currentValue}" *ngSwitchCase="1" class="form-control custom-select" name="" id="" [(ngModel)]="_currentValue" (ngModelChange)="updateParam($event)" >
         <option selected disabled [value]="_default">--- Select one ---</option>
         <option *ngFor="let value of _values" [ngValue]="value">{{ value.EnglishDisplayValue }}</option>
       </select>
-      <select [ngClass]="{'form-control-danger': !_currentValue, 'form-control-success': _currentValue}" *ngSwitchCase="2" name="" id="" class="form-control custom-select" [(ngModel)]="_currentSubValue" (ngModelChange)="updateParam($event)">
+      <select [ngClass]="{'form-control-danger': !_currentValue && !_currentSubValue, 'form-control-success': _currentValue || _currentSubValue}" *ngSwitchCase="2" name="" id="" class="form-control custom-select" [(ngModel)]="_currentSubValue" (ngModelChange)="updateParam($event)">
         <option selected disabled [value]="_default">--- Select one ---</option>
         <optgroup *ngFor="let val of _values" label="{{ val.EnglishDisplayValue }}">
           <option *ngFor="let subval of val.ParamSubValues" [ngValue]="subval">{{ subval.EnglishDisplayValue }}</option>

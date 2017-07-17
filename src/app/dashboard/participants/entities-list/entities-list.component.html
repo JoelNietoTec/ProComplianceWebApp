@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <h4 class="card-title">All Entities</h4>
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Bussiness Name</th>
+        <th>Commercial Name</th>
+        <th>Creation Date</th>
+        <th>Email</th>
+        <th>WebSite</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entity of entities">
+        <td>{{ entity.ID }}</td>
+        <td>{{ entity.FirstName }}</td>
+        <td>{{ entity.SecondName }}</td>
+        <td>{{ entity.BirthDate | date: 'mediumDate' }}</td>
+        <td>{{ entity.Email }}</td>
+        <td>{{ entity.WebSite }}</td>
+        <td class="text-center">
+          <a [routerLink]="['/Participants', entity.ID]" class="btn btn-primary btn-sm" placement="left" ngbTooltip="Details">View <i class="fa fa-eye" aria-hidden="true"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

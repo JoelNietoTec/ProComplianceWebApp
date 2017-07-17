@@ -45,7 +45,7 @@ export class ParticipantComplianceParamComponent implements OnInit {
     this._values = this.param.ParamTable.ParamValues;
     this._values = this._util.sortBy(this._values, 'EnglishDisplayValue');
     for (let i of this._values) {
-      i.ParamSubValues = this._util.sortBy(i.ParamSubValues, 'EnglishName');
+      i.ParamSubValues = this._util.sortBy(i.ParamSubValues, 'EnglishDisplayValue');
     }
     // console.log(this._value);
 
@@ -76,7 +76,10 @@ export class ParticipantComplianceParamComponent implements OnInit {
     console.log(this._partParam);
     this._partService.updateParam(this._partParam.ID, this._partParam)
       .subscribe(data => {
-        this.ToastyService.success('Updated Parameter');
+        this.ToastyService.success({
+          title: 'Updated Parameter',
+          msg: this.param.EnglishName
+        });
       });
   }
 }

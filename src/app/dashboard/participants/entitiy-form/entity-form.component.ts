@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +20,8 @@ const NOW = new Date();
 })
 
 export class EntityFormComponent implements OnInit {
+
+  @Input() entity?: Entity;
 
   _entity: Entity;
   private birthdate: string;
@@ -44,18 +46,35 @@ export class EntityFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._entity = {
-      ParticipantTypeID: 2,
-      GenderID: 1
-    };
+    if (this.entity) {
+      this._entity = this.entity;
+
+      this._entity.formBirthDate = {
+        year: new Date(this.entity.BirthDate).getFullYear(),
+        month: new Date(this.entity.BirthDate).getMonth(),
+        day: new Date(this.entity.BirthDate).getDay()
+      };
+    } else {
+      this._entity = {
+        ParticipantTypeID: 2,
+        GenderID: 1
+      };
+    }
   }
 
   saveEntity() {
     this._entity.BirthDate = new Date(this._dateFormatter.format(this._entity.formBirthDate));
     console.log(this._entity);
-    this._partServ.createParticipant(this._entity)
-      .subscribe(data => {
-        this._router.navigate(['/Participants', data.ID]);
-      });
+    if (this.entity) {
+      this._partServ.updateParticipant(this._entity.ID, this._entity)
+        .subscribe(data => {
+          this._router.navigate(['/Participants', data.ID]);
+        });
+    } else {
+      this._partServ.createParticipant(this._entity)
+        .subscribe(data => {
+          this._router.navigate(['/Participants', data.ID]);
+        });
+    }
   }
 }

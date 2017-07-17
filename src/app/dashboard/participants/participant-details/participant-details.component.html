@@ -1,62 +1,52 @@
-<div *ngIf="_participant">
-  <div class="card">
-    <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-          <a href="#info" class="nav-link active" role="tab" data-toggle="tab">Info</a>
-        </li>
-        <li class="nav-item">
-          <a href="#documents" class="nav-link" role="tab" data-toggle="tab">Docs</a>
-        </li>
-        <li class="nav-item">
-          <a href="#matrix" class="nav-link" role="tab" data-toggle="tab">Compliance</a>
-        </li>
-      </ul>
+<div *ngIf="_participant" class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-block text-center">
+          <img src="assets/img/user.jpg" alt="" class="img-fluid img-circle user-img">
+          <h4 class="user-name">
+            {{ _participant.ThirdName }}, {{ _participant.FirstName }}
+          </h4>
+          <h6 [ngClass]="{'text-success': _participant.Score < 3, 'text-warning': _participant.Score > 2.99 && _participant.Score < 6.99, 'text-danger': _participant.Score > 6.99 }">{{ _participant.Score }}</h6>
+        </div>
+        <div>
+          <hr/>
+        </div>
+        <div class="card-block section-block">
+          <small class="text-muted">Email address <i class="fa fa-envelope-o" aria-hidden="true"></i></small>
+          <h6 class="participant-info">{{ _participant.Email }}</h6>
+          <small class="text-muted">Phone number <i class="fa fa-phone" aria-hidden="true"></i></small>
+          <h6 class="participant-info">{{ _participant.Phone }}</h6>
+          <small class="text-muted">Mobile phone <i class="fa fa-mobile-phone" aria-hidden="true"></i></small>
+          <h6 class="participant-info">{{ _participant.MobilePhone }}</h6>
+          <small class="text-muted">Birth date (age) <i class="fa fa-birthday-cake" aria-hidden="true"></i></small>
+          <h6 class="participant-info">{{ _participant.BirthDate | date: 'shortDate' }} <em>({{ _participant.Age }})</em></h6>
+          <small class="text-muted">Gender <i class="fa fa-venus-mars" aria-hidden="true"></i></small>
+          <h6 class="participant-info">{{ _participant.Gender.EnglishName }}</h6>
+          <small class="text-muted">WebSite <i class="fa fa-globe" aria-hidden="true"></i></small>
+          <h6 class="participant-info">{{ _participant.WebSite }}</h6>
+          <small class="text-muted">Address <i class="fa fa-map-marker" aria-hidden="true"></i></small>
+          <h6 class="participant-info">{{ _participant.Address }}</h6>
+        </div>
+      </div>
     </div>
-    <div class="tab-content">
-      <div class="tab-pane active" id="info" role="tabpanel">
-        <div class="card-block">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 text-center info-section">
-                <h4 class="user-name" *ngIf="_participant.ParticipantTypeID == 1">
-                  {{ _participant.FirstName }} {{ _participant.SecondName }} {{_participant.ThirdName }} {{ _participant.FourthName}}
-                  </h4>
-                  <h4 class="user-name" *ngIf="_participant.ParticipantTypeID == 2">
-                    {{ _participant.FirstName }}
-                  </h4>
-                <img src="assets/img/user.jpg" alt="" class="img-thumbnail img-fluid user-img">
-                <h4 class="section-title">General Info</h4>
-                <table class="table table-sm">
-                  <tbody>
-                    <tr>
-                      <td class="info-name"><i class="fa fa-venus-mars" aria-hidden="true"></i> Gender:</td>
-                      <td>{{ _participant.Gender.EnglishName }}</td>
-                    </tr>
-                    <tr>
-                      <td class="info-name"><i class="fa fa-calendar" aria-hidden="true"></i> Birth Date:</td>
-                      <td>{{ _participant.BirthDate | date: 'mediumDate' }}</td>
-                    </tr>
-                    <tr>
-                      <td class="info-name"><i class="fa fa-map-marker" aria-hidden="true"></i> Birth Place</td>
-                      <td>Panama City, Panama</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="documents" role="tabpanel">
-        <div class="card-block">
-          Documents
-        </div>
-      </div>
-      <div class="tab-pane" id="matrix" role="tabpanel">
-        <div class="card-block">
-          <participants-compliance [participant]="_participant"></participants-compliance>
-        </div>
+    <div class="col-md-8">
+      <div class="card">
+        <ngb-tabset type="pills" *ngIf="_participant">
+          <ngb-tab title="Risks Matrix">
+            <ng-template ngbTabContent>
+              <participant-compliance [participant]="_participant"></participant-compliance>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Documents">
+            <ng-template ngbTabContent></ng-template>
+          </ngb-tab>
+          <ngb-tab title="Edit">
+            <ng-template ngbTabContent>
+              <entity-form [entity]="_participant"></entity-form>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
       </div>
     </div>
   </div>
